@@ -1,0 +1,30 @@
+name: vs2022
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: before_build (addpkg_syscygwin)
+      run: ci_scripts/addpkg_syscygwin.bat
+
+    - name: before_build (install_innosetup)
+      run: buildtools/install_innosetup.bat
+
+    - name: build_script
+      run: ci_scripts/build_appveyor_release_bat.bat
+
+    - name: after_build
+      run: ci_scripts/build_appveyor_release_bat_pre_cache.bat
