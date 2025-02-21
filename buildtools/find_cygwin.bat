@@ -1,5 +1,6 @@
+chcp 65001 >nul
 rem output
-rem     CYGWIN_PATH     cygwin‚ÌbinƒtƒHƒ‹ƒ_
+rem     CYGWIN_PATH     cygwinã®binãƒ•ã‚©ãƒ«ãƒ€
 
 set CYGWIN_PATH=%~dp0..\buildtools\cygwin64\bin
 if exist "%CYGWIN_PATH%\cygwin1.dll" exit /b 0
