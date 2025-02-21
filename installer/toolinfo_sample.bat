@@ -1,10 +1,11 @@
+chcp 65001 >nul
 rem toolinfo.bat
 rem  sample
 
-rem •K—v‚È‚çpath‚Ìİ’è‚âíœ‚ğs‚¤
+rem å¿…è¦ãªã‚‰pathã®è¨­å®šã‚„å‰Šé™¤ã‚’è¡Œã†
 rem set PATH=
 
-rem Šeƒc[ƒ‹‚Ö‚ÌƒpƒX‚È‚Ç‚ğw’è‚·‚é
+rem å„ãƒ„ãƒ¼ãƒ«ã¸ã®ãƒ‘ã‚¹ãªã©ã‚’æŒ‡å®šã™ã‚‹
 rem set PERL_PATH=C:\Strawberry\perl\bin
 rem set SVN_PATH=C:\Program Files (x86)\Subversion\bin
 rem set GIT_PATH=C:\Program Files\Git\cmd
@@ -15,5 +16,5 @@ rem set CYGWIN_PATH=%~dp0..\buildtools\cygwin64\bin
 rem set CYGWIN_PATH=C:\cygwin64\bin
 rem set INNO_SETUP="C:\Program Files (x86)\Inno Setup 6\iscc.exe"
 
-rem release.bat ‚Ö‚Ìw¦
+rem release.bat ã¸ã®æŒ‡ç¤º
 rem set NOPAUSE=0
