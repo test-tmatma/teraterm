@@ -17,8 +17,13 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: before_build (addpkg_syscygwin)
-      run: ci_scripts/addpkg_syscygwin.bat
+    - name: Cygwin をセットアップ
+      uses: cygwin/setup-cygwin@v2
+      with:
+        packages: cmake,perl-JSON,perl-LWP-Protocol-https
+
+    #- name: before_build (addpkg_syscygwin)
+    #  run: ci_scripts/addpkg_syscygwin.bat
 
     - name: before_build (install_innosetup)
       run: buildtools/install_innosetup.bat
