@@ -28,3 +28,12 @@ jobs:
 
     - name: after_build
       run: ci_scripts/build_appveyor_release_bat_pre_cache.bat
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: installer
+        path: |
+          installer/Output/*.exe
+          installer/Output/*.zip
+
