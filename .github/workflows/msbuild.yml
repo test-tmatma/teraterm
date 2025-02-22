@@ -37,7 +37,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: installer
+        name: installer-${{ github.run_number }}
         path: |
           installer/Output/*.exe
           installer/Output/*.zip
