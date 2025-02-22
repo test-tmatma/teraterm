@@ -19,7 +19,7 @@ call "%VS160COMNTOOLS%\VsDevCmd.bat"
 goto vs2019
 
 :novs
-@echo off
+@echo on
 echo "Can't find Visual Studio"
 echo.
 echo InnoSetupからVS2019でビルドするためには、環境変数を設定してください。

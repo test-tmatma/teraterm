@@ -1,4 +1,4 @@
-@echo off
+@echo on
 
 set TTMACRO=%~dp0\..\teraterm\Debug\ttpmacro.exe
 set MACROFILE=%~dpn0.ttl

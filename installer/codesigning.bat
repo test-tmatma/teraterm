@@ -1,4 +1,4 @@
-@echo off
+@echo on
 
 rem
 rem OpenSSL + signtool を使って、オレオレコードサイニング証明書を付与する。

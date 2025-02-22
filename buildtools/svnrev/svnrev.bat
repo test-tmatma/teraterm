@@ -1,4 +1,4 @@
-@echo off
+@echo on
 setlocal
 cd /d %~dp0
 set BAT=%~n0%~x0

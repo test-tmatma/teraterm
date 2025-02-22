@@ -1,4 +1,4 @@
-@echo off
+@echo on
 setlocal
 chcp 65001
 cd /d %~dp0

@@ -57,7 +57,7 @@ move ossl_static.pdb out32.dbg
 rem Visual Studio 2005 の場合は 2003 R2 Platform SDK の導入を確認する
 echo %CL_VER% | find "Compiler Version 14" >nul
 if ERRORLEVEL 1 goto end
-@echo off
+@echo on
 if exist out32\openssl.exe (
     echo OpenSSLのビルドが正常終了しました。
     goto end

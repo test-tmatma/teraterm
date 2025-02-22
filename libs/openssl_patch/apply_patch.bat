@@ -1,4 +1,4 @@
-@echo off
+@echo on
 
 rem folder は、patch を実行する .. から見た相対パス
 set folder=openssl_patch

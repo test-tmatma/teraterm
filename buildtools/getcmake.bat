@@ -1,4 +1,4 @@
-@echo off
+@echo on
 setlocal
 cd /d %~dp0
 IF NOT EXIST cmake-3.11.4-win32-x86 (
