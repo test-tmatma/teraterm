@@ -28,6 +28,11 @@ jobs:
     #- name: before_build (addpkg_syscygwin)
     #  run: ci_scripts/addpkg_syscygwin.bat
 
+    - name: download setup-x86_64.exe
+      run: |
+        mkdir buildtools\cygwin64
+        curl https://www.cygwin.com/setup-x86_64.exe --output buildtools\cygwin64\setup-x86_64.exe
+
     - name: before_build (install_cygwin)
       run: buildtools/install_cygwin.bat
 
