@@ -12,6 +12,7 @@ jobs:
     runs-on: windows-latest
     env:
       NOPAUSE: 1
+      VS_VERSION: 2022
 
     steps:
     - uses: actions/checkout@v4
