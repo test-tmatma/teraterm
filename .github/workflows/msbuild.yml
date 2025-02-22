@@ -30,22 +30,31 @@ jobs:
 
     - name: download setup-x86_64.exe
       run: |
+        chcp 932
         mkdir buildtools\cygwin64
         curl https://www.cygwin.com/setup-x86_64.exe --output buildtools\cygwin64\setup-x86_64.exe
 
     - uses: msys2/setup-msys2@v2
 
     - name: before_build (install_cygwin)
-      run: buildtools/install_cygwin.bat
+      run: |
+        chcp 932
+        buildtools/install_cygwin.bat
 
     - name: before_build (install_innosetup)
-      run: buildtools/install_innosetup.bat
+      run: |
+        chcp 932
+        buildtools/install_innosetup.bat
 
     - name: build_script
-      run: ci_scripts/build_appveyor_release_bat.bat
+      run: |
+        chcp 932
+        ci_scripts/build_appveyor_release_bat.bat
 
     - name: after_build
-      run: ci_scripts/build_appveyor_release_bat_pre_cache.bat
+      run: |
+        chcp 932
+        ci_scripts/build_appveyor_release_bat_pre_cache.bat
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
