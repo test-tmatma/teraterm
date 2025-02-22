@@ -1,6 +1,7 @@
 setlocal
 rem PATH=c:\cygwin\bin
 PATH=c:\cygwin64\bin
+dir  c:\cygwin64\bin
 uname -a > build_info.txt
 make -j cygterm+-i686
 make -j cygterm+-x86_64
