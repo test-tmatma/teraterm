@@ -28,11 +28,6 @@ jobs:
     - name: before_build (install_innosetup)
       run: buildtools/install_innosetup.bat
 
-    - name: check inno setup
-      run: |
-        set PATH="%PATH%;%ProgramFiles(x86)%\Inno Setup 6"
-        ISCC.exe /?
-
     - name: build_script
       run: ci_scripts/build_appveyor_release_bat.bat
 
