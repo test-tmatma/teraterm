@@ -1,0 +1,57 @@
+name: vs2022
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      NOPAUSE: 1
+      VS_VERSION: 2022
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    # - name: Cygwin をセットアップ
+    #   uses: cygwin/cygwin-install-action@master
+    #   with:
+    #     packages: cmake,perl-JSON,perl-LWP-Protocol-https
+
+    #- name: before_build (addpkg_syscygwin)
+    #  run: ci_scripts/addpkg_syscygwin.bat
+
+    - name: download setup-x86_64.exe
+      run: |
+        mkdir buildtools\cygwin64
+        curl https://www.cygwin.com/setup-x86_64.exe --output buildtools\cygwin64\setup-x86_64.exe
+
+    - uses: msys2/setup-msys2@v2
+
+    - name: before_build (install_cygwin)
+      run: buildtools/install_cygwin.bat
+
+    - name: before_build (install_innosetup)
+      run: buildtools/install_innosetup.bat
+
+    - name: build_script
+      run: ci_scripts/build_appveyor_release_bat.bat
+
+    - name: after_build
+      run: ci_scripts/build_appveyor_release_bat_pre_cache.bat
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: installer-${{ github.run_number }}
+        path: |
+          installer/Output/*.exe
+          installer/Output/*.zip
+
