@@ -1,9 +1,9 @@
-
+chcp 65001 >nul
 if not "%VSINSTALLDIR%" == "" goto vsinstdir
 
-rem InnoSetup ‚©‚çƒrƒ‹ƒh‚·‚é‚ÍA•W€‚ÅŠÂ‹«•Ï”‚Éİ’è‚³‚ê‚Ä‚¢‚é
-rem Visual Studio‚ª‘I‘ğ‚³‚ê‚éBVS2019Œˆ‚ß‘Å‚¿‚Åƒrƒ‹ƒh‚µ‚½‚¢ê‡‚Í
-rem ‰º‹L goto •¶‚ğ—LŒø‚É‚·‚é‚±‚ÆB
+rem InnoSetup ã‹ã‚‰ãƒ“ãƒ«ãƒ‰ã™ã‚‹æ™‚ã¯ã€æ¨™æº–ã§ç’°å¢ƒå¤‰æ•°ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹
+rem Visual StudioãŒé¸æŠã•ã‚Œã‚‹ã€‚VS2019æ±ºã‚æ‰“ã¡ã§ãƒ“ãƒ«ãƒ‰ã—ãŸã„å ´åˆã¯
+rem ä¸‹è¨˜ goto æ–‡ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã“ã¨ã€‚
 rem goto check_2019
 
 :check_2022
@@ -22,16 +22,16 @@ goto vs2019
 @echo off
 echo "Can't find Visual Studio"
 echo.
-echo InnoSetup‚©‚çVS2019‚Åƒrƒ‹ƒh‚·‚é‚½‚ß‚É‚ÍAŠÂ‹«•Ï”‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢B
+echo InnoSetupã‹ã‚‰VS2019ã§ãƒ“ãƒ«ãƒ‰ã™ã‚‹ãŸã‚ã«ã¯ã€ç’°å¢ƒå¤‰æ•°ã‚’è¨­å®šã—ã¦ãã ã•ã„ã€‚
 echo.
-echo —á
+echo ä¾‹
 echo VS160COMNTOOLS=c:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\
 @echo on
 pause
 goto fail
 
 :vsinstdir
-rem Visual Studio‚Ìƒo[ƒWƒ‡ƒ“”»•Ê
+rem Visual Studioã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³åˆ¤åˆ¥
 set VSCMNDIR="%VSINSTALLDIR%\Common7\Tools\"
 set VSCMNDIR=%VSCMNDIR:\\=\%
 
@@ -67,17 +67,17 @@ set BUILD=build
 if "%1" == "rebuild" (set BUILD=rebuild)
 pushd %~dp0
 
-rem ƒ‰ƒCƒuƒ‰ƒŠ‚ğƒRƒ“ƒpƒCƒ‹
+rem ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«
 pushd ..\libs
 CALL buildall.bat
 if ERRORLEVEL 1 (
-    echo "build.bat ‚ğI—¹‚µ‚Ü‚·"
+    echo "build.bat ã‚’çµ‚äº†ã—ã¾ã™"
     goto fail
 )
 popd
 
 
-rem ƒŠƒrƒWƒ‡ƒ“‚ª•Ï‰»‚µ‚Ä‚¢‚ê‚Î svnversion.h ‚ğXV‚·‚éB
+rem ãƒªãƒ“ã‚¸ãƒ§ãƒ³ãŒå¤‰åŒ–ã—ã¦ã„ã‚Œã° svnversion.h ã‚’æ›´æ–°ã™ã‚‹ã€‚
 call ..\buildtools\svnrev\svnrev.bat
 
 
@@ -96,7 +96,7 @@ if ERRORLEVEL 1 goto fail
 devenv /%BUILD% release %CYGWINSLN%
 if ERRORLEVEL 1 goto fail
 
-rem cygterm ‚ğƒRƒ“ƒpƒCƒ‹
+rem cygterm ã‚’ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«
 pushd ..\cygwin\cygterm
 if "%BUILD%" == "rebuild" (
     make clean
@@ -124,7 +124,7 @@ pushd ..\cygwin\cygterm
 make archive
 popd
 
-rem lng ƒtƒ@ƒCƒ‹‚ğì¬
+rem lng ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆ
 call makelang.bat
 
 popd
