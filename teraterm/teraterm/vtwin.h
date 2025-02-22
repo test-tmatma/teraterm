@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2004- TeraTerm Project
  * All rights reserved.
@@ -71,8 +71,8 @@ private:
   // for debug
 #if UNICODE_DEBUG
   TipWin *TipWinCodeDebug;
-  int CtrlKeyState;			// 0:ŠJn/1:‰Ÿ‚·/2:—£‚·/3:‰Ÿ‚·(•\¦ó‘Ô)
-  DWORD CtrlKeyDownTick;	// Å‰‚É‰Ÿ‚µ‚½tick
+  int CtrlKeyState;			// 0:é–‹å§‹/1:æŠ¼ã™/2:é›¢ã™/3:æŠ¼ã™(è¡¨ç¤ºçŠ¶æ…‹)
+  DWORD CtrlKeyDownTick;	// æœ€åˆã«æŠ¼ã—ãŸtick
 #endif
 
   // TipWin

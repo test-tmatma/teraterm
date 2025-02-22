@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2007- TeraTerm Project
  * All rights reserved.
@@ -47,7 +47,7 @@ public:
 		Op OpId;
 		wchar_t *DlgCaption;
 		wchar_t *FullName;
-		wchar_t *FileName;		// NULL‚Ì‚Æ‚«AFullName‚©‚çƒtƒ@ƒCƒ‹–¼‚ğì¬‚·‚é
+		wchar_t *FileName;		// NULLã®ã¨ãã€FullNameã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«åã‚’ä½œæˆã™ã‚‹
 		BOOL HideDialog;
 		HWND HMainWin;
 	};
@@ -71,7 +71,7 @@ private:
 	BOOL Pause;
 	const wchar_t *UILanguageFile;
 	WORD OpId;
-	int ProgStat;	// ƒvƒƒOƒŒƒXƒo[‚Ìi’»‚ª–ß‚ç‚È‚¢‚æ‚¤‹L‰¯‚µ‚Ä‚¨‚­
+	int ProgStat;	// ãƒ—ãƒ­ã‚°ãƒ¬ã‚¹ãƒãƒ¼ã®é€²æ—ãŒæˆ»ã‚‰ãªã„ã‚ˆã†è¨˜æ†¶ã—ã¦ãŠã
 	BOOL HideDialog;
 	wchar_t *DlgCaption;
 	wchar_t *FileName;

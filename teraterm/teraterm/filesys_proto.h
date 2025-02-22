@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2020 TeraTerm Project
  * All rights reserved.
  *
@@ -31,28 +31,28 @@
 #include "filesys_io.h"
 
 typedef struct FileVarProto {
-	// «protosys_proto.cpp“à‚Ì‚İg—p
+	// â†“protosys_proto.cppå†…ã®ã¿ä½¿ç”¨
 	WORD OpId;
 
 	HWND HMainWin;
 	HWND HWin;
 	wchar_t *DlgCaption;
 
-	// ‘—Mƒtƒ@ƒCƒ‹–¼”z—ñ
-	//	ƒtƒ‹ƒpƒX‚Ìƒtƒ@ƒCƒ‹–¼”z—ñ(ˆê”ÔÅŒã‚ÍNULL)
+	// é€ä¿¡ãƒ•ã‚¡ã‚¤ãƒ«åé…åˆ—
+	//	ãƒ•ãƒ«ãƒ‘ã‚¹ã®ãƒ•ã‚¡ã‚¤ãƒ«åé…åˆ—(ä¸€ç•ªæœ€å¾Œã¯NULL)
 	wchar_t **FileNames;
-	int FNCount;		// ‘—M’†ƒtƒ@ƒCƒ‹–¼”z—ñindex(0...)
+	int FNCount;		// é€ä¿¡ä¸­ãƒ•ã‚¡ã‚¤ãƒ«åé…åˆ—index(0...)
 
-	// óM
-	wchar_t *RecievePath;		// óMƒtƒHƒ‹ƒ_(I’[‚ÉƒpƒXƒZƒpƒŒ[ƒ^'\\'‚ª•t‰Á‚³‚ê‚Ä‚¢‚é)
+	// å—ä¿¡
+	wchar_t *RecievePath;		// å—ä¿¡ãƒ•ã‚©ãƒ«ãƒ€(çµ‚ç«¯ã«ãƒ‘ã‚¹ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿'\\'ãŒä»˜åŠ ã•ã‚Œã¦ã„ã‚‹)
 
-	// ªprotosys_proto.cpp“à‚Ì‚İg—p
+	// â†‘protosys_proto.cppå†…ã®ã¿ä½¿ç”¨
 
-	// «ŠeƒvƒƒgƒRƒ‹‚Åg—p‚·‚éƒ[ƒN
+	// â†“å„ãƒ—ãƒ­ãƒˆã‚³ãƒ«ã§ä½¿ç”¨ã™ã‚‹ãƒ¯ãƒ¼ã‚¯
 	BOOL OverWrite;
 	BOOL Success;
 	BOOL NoMsg;
-	// ªŠeƒvƒƒgƒRƒ‹‚Åg—p‚·‚éƒ[ƒN
+	// â†‘å„ãƒ—ãƒ­ãƒˆã‚³ãƒ«ã§ä½¿ç”¨ã™ã‚‹ãƒ¯ãƒ¼ã‚¯
 
 	// services
 	char *(*GetNextFname)(struct FileVarProto *fv);
@@ -71,7 +71,7 @@ typedef struct FileVarProto {
 } TFileVarProto;
 typedef TFileVarProto *PFileVarProto;
 
-// ƒvƒƒgƒRƒ‹‚ÌƒIƒyƒŒ[ƒVƒ‡ƒ“
+// ãƒ—ãƒ­ãƒˆã‚³ãƒ«ã®ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³
 typedef struct ProtoOp_ {
 	BOOL (*Init)(struct FileVarProto *fv, PComVar cv, PTTSet ts);
 	BOOL (*Parse)(struct FileVarProto *fv, PComVar cv);
@@ -81,7 +81,7 @@ typedef struct ProtoOp_ {
 	void (*Destroy)(struct FileVarProto *fv);
 } TProtoOp;
 
-// UI‚È‚Çî•ñ•\¦—pŠÖ”
+// UIãªã©æƒ…å ±è¡¨ç¤ºç”¨é–¢æ•°
 typedef struct InfoOp_ {
 	void (*InitDlgProgress)(struct FileVarProto *fv, int *CurProgStat);
 	void (*SetDlgTime)(struct FileVarProto *fv, DWORD elapsed, int bytes);

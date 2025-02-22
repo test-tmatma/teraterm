@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2020 TeraTerm Project
  * All rights reserved.
  *
@@ -131,7 +131,7 @@ static void _SetDlgProtoFileName(struct FileVarProto *fv, const char *filename)
 		SetDlgItemTextA(fv->HWin, IDC_PROTOFNAME, "");
 		return;
 	}
-	// ƒtƒ@ƒCƒ‹–¼(ÅŒã‚ÌƒpƒXƒZƒpƒŒ[ƒ^‚©‚çŒã‚ë‚ğ•\¦)
+	// ãƒ•ã‚¡ã‚¤ãƒ«å(æœ€å¾Œã®ãƒ‘ã‚¹ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿ã‹ã‚‰å¾Œã‚ã‚’è¡¨ç¤º)
 	const char *s = filename;
 	const char *p = strrchr(filename, '\\');
 	if (p == NULL) {
@@ -150,11 +150,11 @@ static void _InitDlgProgress(struct FileVarProto *fv, int *CurProgStat)
 }
 
 /**
- *	ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+ *	ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—
  *
- *	@return		ƒtƒ@ƒCƒ‹–¼ UTF-8
- *				NULL‚Ì‚Æ‚«Ÿ‚Ìƒtƒ@ƒCƒ‹‚Í‚È‚¢
- *				•s—v‚É‚È‚Á‚½‚ç free() ‚·‚é‚±‚Æ
+ *	@return		ãƒ•ã‚¡ã‚¤ãƒ«å UTF-8
+ *				NULLã®ã¨ãæ¬¡ã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ãªã„
+ *				ä¸è¦ã«ãªã£ãŸã‚‰ free() ã™ã‚‹ã“ã¨
  */
 static char *GetNextFname(PFileVarProto fv)
 {
@@ -169,10 +169,10 @@ static char *GetNextFname(PFileVarProto fv)
 }
 
 /**
- *	ƒ_ƒEƒ“ƒ[ƒhƒpƒX‚ğæ“¾
+ *	ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ãƒ‘ã‚¹ã‚’å–å¾—
  *
- *	@return		óMƒtƒHƒ‹ƒ_(I’[‚ÉƒpƒXƒZƒpƒŒ[ƒ^'\\'‚ª•t‰Á‚³‚ê‚Ä‚¢‚é)
- *				•s—v‚É‚È‚Á‚½‚ç free() ‚·‚é‚±‚Æ
+ *	@return		å—ä¿¡ãƒ•ã‚©ãƒ«ãƒ€(çµ‚ç«¯ã«ãƒ‘ã‚¹ã‚»ãƒ‘ãƒ¬ãƒ¼ã‚¿'\\'ãŒä»˜åŠ ã•ã‚Œã¦ã„ã‚‹)
+ *				ä¸è¦ã«ãªã£ãŸã‚‰ free() ã™ã‚‹ã“ã¨
  */
 static char *GetRecievePath(struct FileVarProto *fv)
 {
@@ -218,7 +218,7 @@ static BOOL NewFileVar_(PFileVarProto *pfv)
 		return FALSE;
 	memset(fv, 0, sizeof(*fv));
 
-	// óMƒtƒHƒ‹ƒ_
+	// å—ä¿¡ãƒ•ã‚©ãƒ«ãƒ€
 	{
 		wchar_t *dir = GetFileDir(&ts);
 		size_t len = wcslen(dir) + 2;
@@ -378,7 +378,7 @@ static BOOL ProtoStart(void)
 	if (cv_ProtoFlag)
 		return FALSE;
 	if (FileSnedIsSending())
-	{	// ƒtƒ@ƒCƒ‹‘—M’†
+	{	// ãƒ•ã‚¡ã‚¤ãƒ«é€ä¿¡ä¸­
 		FreeFileVar_(&FileVar);
 		return FALSE;
 	}
@@ -413,10 +413,10 @@ void ProtoEnd(void)
 	FreeFileVar_(&FileVar);
 }
 
-/* ƒ_ƒCƒAƒƒO‚ğ’†‰›‚ÉˆÚ“®‚·‚é */
+/* ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’ä¸­å¤®ã«ç§»å‹•ã™ã‚‹ */
 static void CenterCommonDialog(HWND hDlg)
 {
-	/* hDlg‚Ìe‚ªƒ_ƒCƒAƒƒO‚ÌƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹ */
+	/* hDlgã®è¦ªãŒãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ« */
 	HWND hWndDlgRoot = GetParent(hDlg);
 	CenterWindow(hWndDlgRoot, GetParent(hWndDlgRoot));
 }
@@ -566,15 +566,15 @@ static UINT_PTR CALLBACK XFnHook(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 }
 
 /**
- *	ƒ_ƒCƒAƒƒO‚ÌƒfƒtƒHƒ‹ƒgƒtƒ@ƒCƒ‹–¼‚ğ•Ô‚·
- *		ƒtƒBƒ‹ƒ^(ts.FileSendFilter)‚ªƒƒCƒ‹ƒhƒJ[ƒh‚Å‚Í‚È‚­A
- *		‚»‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡
- *		ƒfƒtƒHƒ‹ƒg‚Ìƒtƒ@ƒCƒ‹–¼‚Æ‚µ‚Ä•Ô‚·
+ *	ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¿”ã™
+ *		ãƒ•ã‚£ãƒ«ã‚¿(ts.FileSendFilter)ãŒãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ã§ã¯ãªãã€
+ *		ãã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆ
+ *		ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚¡ã‚¤ãƒ«åã¨ã—ã¦è¿”ã™
  *
- * @param[in]	path		ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚©’²‚×‚éƒpƒX
- *							(lpstrInitialDir ‚Éİ’è‚³‚ê‚éƒpƒX)
- * @retval		NULL		ƒfƒtƒHƒ‹ƒgƒtƒ@ƒCƒ‹–¼‚È‚µ
- * @retval		NULLˆÈŠO	ƒfƒtƒHƒ‹ƒgƒtƒ@ƒCƒ‹(•s—v‚É‚È‚Á‚½‚çfree()‚·‚é‚±‚Æ)
+ * @param[in]	path		ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã‹èª¿ã¹ã‚‹ãƒ‘ã‚¹
+ *							(lpstrInitialDir ã«è¨­å®šã•ã‚Œã‚‹ãƒ‘ã‚¹)
+ * @retval		NULL		ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚¡ã‚¤ãƒ«åãªã—
+ * @retval		NULLä»¥å¤–	ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚¡ã‚¤ãƒ«(ä¸è¦ã«ãªã£ãŸã‚‰free()ã™ã‚‹ã“ã¨)
  */
 static wchar_t *GetCommonDialogDefaultFilenameW(const wchar_t *path)
 {
@@ -583,8 +583,8 @@ static wchar_t *GetCommonDialogDefaultFilenameW(const wchar_t *path)
 		return NULL;
 	}
 
-	// ƒtƒBƒ‹ƒ^‚ªƒƒCƒ‹ƒhƒJ[ƒh‚Å‚Í‚È‚­A‚»‚Ìƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡
-	// ‚ ‚ç‚©‚¶‚ßƒfƒtƒHƒ‹ƒg‚Ìƒtƒ@ƒCƒ‹–¼‚ğ“ü‚ê‚Ä‚¨‚­ (2008.5.18 maya)
+	// ãƒ•ã‚£ãƒ«ã‚¿ãŒãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰ã§ã¯ãªãã€ãã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆ
+	// ã‚ã‚‰ã‹ã˜ã‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å…¥ã‚Œã¦ãŠã (2008.5.18 maya)
 	wchar_t *filename = NULL;
 	if (!isInvalidFileNameChar(FileSendFilterA)) {
 		wchar_t file[MAX_PATH];
@@ -594,7 +594,7 @@ static wchar_t *GetCommonDialogDefaultFilenameW(const wchar_t *path)
 		wcsncat_s(file, _countof(file), FileSendFilterW, _TRUNCATE);
 		DWORD attr = GetFileAttributesW(file);
 		if (attr != INVALID_FILE_ATTRIBUTES && (attr & FILE_ATTRIBUTE_DIRECTORY) == 0) {
-			// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é
+			// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹
 			filename = _wcsdup(file);
 		}
 		free(FileSendFilterW);
@@ -605,7 +605,7 @@ static wchar_t *GetCommonDialogDefaultFilenameW(const wchar_t *path)
 
 static wchar_t **MakeStrArrayFromArray(wchar_t **strs)
 {
-	// ”‚ğ”‚¦‚é
+	// æ•°ã‚’æ•°ãˆã‚‹
 	size_t strs_count = 0;
 	size_t strs_len = 0;
 	while(1) {
@@ -618,7 +618,7 @@ static wchar_t **MakeStrArrayFromArray(wchar_t **strs)
 		strs_len += len;
 	}
 
-	// 1—Ìˆæ‚É•Û‘¶
+	// 1é ˜åŸŸã«ä¿å­˜
 	size_t ptrs_len = sizeof(char *) * (strs_count + 1);
 	char *pool = (char *)malloc(ptrs_len + strs_len * sizeof(wchar_t));
 	wchar_t **ptrs = (wchar_t **)pool;
@@ -645,7 +645,7 @@ static wchar_t **MakeStrArrayFromStr(const wchar_t *str)
 
 static wchar_t **MakeFileArrayMultiSelect(const wchar_t *lpstrFile)
 {
-	// ”‚ğ”‚¦‚é
+	// æ•°ã‚’æ•°ãˆã‚‹
 	size_t file_count = 0;
 	const wchar_t *p = lpstrFile;
 	const wchar_t *path = p;
@@ -661,11 +661,11 @@ static wchar_t **MakeFileArrayMultiSelect(const wchar_t *lpstrFile)
 	}
 
 	if (file_count == 0) {
-		// 1‚Â‚¾‚¯‘I‘ğ‚³‚ê‚Ä‚¢‚½
+		// 1ã¤ã ã‘é¸æŠã•ã‚Œã¦ã„ãŸ
 		return MakeStrArrayFromStr(lpstrFile);
 	}
 
-	// ƒpƒX + ƒtƒ@ƒCƒ‹–¼ ˆê——ì¬
+	// ãƒ‘ã‚¹ + ãƒ•ã‚¡ã‚¤ãƒ«å ä¸€è¦§ä½œæˆ
 	size_t ptr_len = sizeof(wchar_t *) * (file_count + 1);
 	wchar_t **filenames = (wchar_t **)malloc(ptr_len);
 	len = wcslen(path);
@@ -759,11 +759,11 @@ static wchar_t **_GetXFname(HWND HWin, BOOL Receive, const wchar_t *caption, LPL
 }
 
 /**
- *	OnIdle()#teraterm.cpp‚©‚çƒR[ƒ‹‚³‚ê‚é
- *		cv_ProtoFlag ‚ª 0 ˆÈŠO‚Ì‚Æ‚«
+ *	OnIdle()#teraterm.cppã‹ã‚‰ã‚³ãƒ¼ãƒ«ã•ã‚Œã‚‹
+ *		cv_ProtoFlag ãŒ 0 ä»¥å¤–ã®ã¨ã
  *	@retval		0		continue
- *				1/2		ActiveWin(ƒOƒ[ƒoƒ‹•Ï”)‚Ì’l(IdVT=1/IdTek=2)
- *						’ ¡‚Ì‚Æ‚±‚ëÌ‚Ä‚ç‚ê‚Ä‚¢‚é
+ *				1/2		ActiveWin(ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°)ã®å€¤(IdVT=1/IdTek=2)
+ *						æ³¨ ä»Šã®ã¨ã“ã‚æ¨ã¦ã‚‰ã‚Œã¦ã„ã‚‹
  */
 int ProtoDlgParse(void)
 {
@@ -773,14 +773,14 @@ int ProtoDlgParse(void)
 	if (PtDlg==NULL)
 		return P;
 
-	CommReceive(&cv); //ƒ_ƒCƒAƒƒO•\¦’†‚ÉóM‚µ‚½ƒf[ƒ^‚ğˆ—‚Å‚«‚é‚æ‚¤‚É“Ç‚İæ‚è‚ğs‚í‚¹‚é
+	CommReceive(&cv); //ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºä¸­ã«å—ä¿¡ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’å‡¦ç†ã§ãã‚‹ã‚ˆã†ã«èª­ã¿å–ã‚Šã‚’è¡Œã‚ã›ã‚‹
 
 	PFileVarProto fv = FileVar;
 	if (fv->ProtoOp->Parse(fv, &cv))
-		// ˆ—‚ğŒp‘±‚·‚é
+		// å‡¦ç†ã‚’ç¶™ç¶šã™ã‚‹
 		P = 0;
 	else {
-		// ˆ—I—¹
+		// å‡¦ç†çµ‚äº†
 		CommSend(&cv);
 		ProtoEnd();
 	}
@@ -788,31 +788,31 @@ int ProtoDlgParse(void)
 }
 
 /**
- *	ƒ^ƒCƒ€ƒAƒEƒg”­¶
+ *	ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆç™ºç”Ÿ
  */
 void ProtoDlgTimeOut(void)
 {
 	if (PtDlg!=NULL) {
 		PFileVarProto fv = FileVar;
 
-		// ƒ^ƒCƒ€ƒAƒEƒg‚ª”­¶‚µ‚½‚±‚Æ‚ğ’Ê’m‚·‚é
+		// ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆãŒç™ºç”Ÿã—ãŸã“ã¨ã‚’é€šçŸ¥ã™ã‚‹
 		fv->ProtoOp->TimeOutProc(fv, &cv);
 	}
 }
 
 /**
- *	ƒ_ƒCƒAƒƒO‚Ì "Cancel" ‚ª‰Ÿ‚³‚ê‚½
+ *	ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã® "Cancel" ãŒæŠ¼ã•ã‚ŒãŸ
  */
 void ProtoDlgCancel(void)
 {
 	if (PtDlg!=NULL) {
 		PFileVarProto fv = FileVar;
 
-		// ƒLƒƒƒ“ƒZƒ‹‚ª‰Ÿ‚³‚ê‚½‚±‚Æ‚ğ’Ê’m‚·‚é
+		// ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãŒæŠ¼ã•ã‚ŒãŸã“ã¨ã‚’é€šçŸ¥ã™ã‚‹
 		fv->ProtoOp->Cancel(fv, &cv);
 
 		if (ProtoId != PROTO_ZM) {
-			// ƒ_ƒCƒAƒƒO‚ğ•Â‚¶‚é
+			// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’é–‰ã˜ã‚‹
 			ProtoEnd();
 		}
 	}
@@ -858,7 +858,7 @@ static INT_PTR CALLBACK GetFnDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 			return TRUE;
 		case IDC_GETFNHELP:
 			if (fv!=NULL) {
-				// ŒÄ‚Ño‚µŒ³‚ªƒwƒ‹ƒvID‚ğ€”õ‚·‚é
+				// å‘¼ã³å‡ºã—å…ƒãŒãƒ˜ãƒ«ãƒ—IDã‚’æº–å‚™ã™ã‚‹
 				PostMessage(fv->HMainWin,WM_USER_DLGHELP2,0,0);
 			}
 			break;
@@ -1037,9 +1037,9 @@ static void KermitStart(int mode)
 }
 
 /**
- *	Kermit ‘—M
+ *	Kermit é€ä¿¡
  *
- *	@param[in]	filename			óMƒtƒ@ƒCƒ‹–¼(NULL‚Ì‚Æ‚«Aƒ_ƒCƒAƒƒO‚Å‘I‘ğ‚·‚é)
+ *	@param[in]	filename			å—ä¿¡ãƒ•ã‚¡ã‚¤ãƒ«å(NULLã®ã¨ãã€ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§é¸æŠã™ã‚‹)
  */
 BOOL KermitStartSend(const wchar_t *filename)
 {
@@ -1080,7 +1080,7 @@ BOOL KermitStartSend(const wchar_t *filename)
 }
 
 /**
- *	Kermit óM
+ *	Kermit å—ä¿¡
  */
 BOOL KermitGet(const wchar_t *filename)
 {
@@ -1118,7 +1118,7 @@ BOOL KermitGet(const wchar_t *filename)
 }
 
 /**
- *	Kermit óM
+ *	Kermit å—ä¿¡
  */
 BOOL KermitStartRecive(BOOL macro)
 {
@@ -1133,7 +1133,7 @@ BOOL KermitStartRecive(BOOL macro)
 	SetDialogCation(fv, "FILEDLG_TRANS_TITLE_KMTRCV", TitKmtRcv);
 
 	if (macro) {
-		// ƒ}ƒNƒ‚©‚ç
+		// ãƒã‚¯ãƒ­ã‹ã‚‰
 		FileVar->NoMsg = TRUE;
 	}
 	KermitStart(IdKmtReceive);
@@ -1166,9 +1166,9 @@ BOOL KermitFinish(BOOL macro)
 }
 
 /**
- *	XMODEMóM
+ *	XMODEMå—ä¿¡
  *
- *	@param[in]	filename			óMƒtƒ@ƒCƒ‹–¼(NULL‚Ì‚Æ‚«Aƒ_ƒCƒAƒƒO‚Å‘I‘ğ‚·‚é)
+ *	@param[in]	filename			å—ä¿¡ãƒ•ã‚¡ã‚¤ãƒ«å(NULLã®ã¨ãã€ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§é¸æŠã™ã‚‹)
  *	@param[in]	ParamBinaryFlag
  *	@param[in]	ParamXmodemOpt
  */
@@ -1261,9 +1261,9 @@ BOOL XMODEMStartReceive(const wchar_t *filename, WORD ParamBinaryFlag, WORD Para
 }
 
 /**
- *	XMODEM‘—M
+ *	XMODEMé€ä¿¡
  *
- *	@param[in]	filename			‘—Mƒtƒ@ƒCƒ‹–¼(NULL‚Ì‚Æ‚«Aƒ_ƒCƒAƒƒO‚Å‘I‘ğ‚·‚é)
+ *	@param[in]	filename			é€ä¿¡ãƒ•ã‚¡ã‚¤ãƒ«å(NULLã®ã¨ãã€ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§é¸æŠã™ã‚‹)
  *	@param[in]	ParamXmodemOpt
  */
 BOOL XMODEMStartSend(const wchar_t *filename, WORD ParamXmodemOpt)
@@ -1352,9 +1352,9 @@ BOOL XMODEMStartSend(const wchar_t *filename, WORD ParamXmodemOpt)
 }
 
 /**
- *	YMODEMóM
+ *	YMODEMå—ä¿¡
  *
- *	@param[in]	macro	TURE‚Ì‚Æ‚«ƒ}ƒNƒ‚©‚çŒÄ‚Î‚ê‚½
+ *	@param[in]	macro	TUREã®ã¨ããƒã‚¯ãƒ­ã‹ã‚‰å‘¼ã°ã‚ŒãŸ
  */
 BOOL YMODEMStartReceive(BOOL macro)
 {
@@ -1378,7 +1378,7 @@ BOOL YMODEMStartReceive(BOOL macro)
 
 	SetDialogCation(fv, "FILEDLG_TRANS_TITLE_YRCV", TitYRcv);
 
-	// ƒtƒ@ƒCƒ‹“]‘—‚ÌƒIƒvƒVƒ‡ƒ“‚Í"Yopt1K"‚ÉŒˆ‚ß‘Å‚¿B
+	// ãƒ•ã‚¡ã‚¤ãƒ«è»¢é€æ™‚ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã¯"Yopt1K"ã«æ±ºã‚æ‰“ã¡ã€‚
 	WORD Opt = Yopt1K;
 //	_SetFileVar(FileVar);
 
@@ -1396,9 +1396,9 @@ BOOL YMODEMStartReceive(BOOL macro)
 }
 
 /**
- *	YMODEM‘—M
+ *	YMODEMé€ä¿¡
  *
- *	@param[in]	filename			‘—Mƒtƒ@ƒCƒ‹–¼(NULL‚Ì‚Æ‚«Aƒ_ƒCƒAƒƒO‚Å‘I‘ğ‚·‚é)
+ *	@param[in]	filename			é€ä¿¡ãƒ•ã‚¡ã‚¤ãƒ«å(NULLã®ã¨ãã€ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§é¸æŠã™ã‚‹)
  */
 BOOL YMODEMStartSend(const wchar_t *filename)
 {
@@ -1416,8 +1416,8 @@ BOOL YMODEMStartSend(const wchar_t *filename)
 
 	SetDialogCation(fv, "FILEDLG_TRANS_TITLE_YSEND", TitYSend);
 
-	// ƒtƒ@ƒCƒ‹“]‘—‚ÌƒIƒvƒVƒ‡ƒ“‚Í"Yopt1K"‚ÉŒˆ‚ß‘Å‚¿B
-	// TODO: "Yopt1K", "YoptG", "YoptSingle"‚ğ‹æ•Ê‚µ‚½‚¢‚È‚ç‚ÎAIDD_FOPT‚ğŠg’£‚·‚é•K—v‚ ‚èB
+	// ãƒ•ã‚¡ã‚¤ãƒ«è»¢é€æ™‚ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã¯"Yopt1K"ã«æ±ºã‚æ‰“ã¡ã€‚
+	// TODO: "Yopt1K", "YoptG", "YoptSingle"ã‚’åŒºåˆ¥ã—ãŸã„ãªã‚‰ã°ã€IDD_FOPTã‚’æ‹¡å¼µã™ã‚‹å¿…è¦ã‚ã‚Šã€‚
 	WORD Opt = Yopt1K;
 	FileVar->OpId = OpYSend;
 	if (filename == NULL) {
@@ -1456,10 +1456,10 @@ BOOL YMODEMStartSend(const wchar_t *filename)
 }
 
 /**
- *	ZMODEMóM
+ *	ZMODEMå—ä¿¡
  *
- *	@param[in]	macro		TURE‚Ì‚Æ‚«ƒ}ƒNƒ‚©‚çŒÄ‚Î‚ê‚½
- *	@param[in]	autostart	TURE‚Ì‚Æ‚«©“®ƒXƒ^[ƒg
+ *	@param[in]	macro		TUREã®ã¨ããƒã‚¯ãƒ­ã‹ã‚‰å‘¼ã°ã‚ŒãŸ
+ *	@param[in]	autostart	TUREã®ã¨ãè‡ªå‹•ã‚¹ã‚¿ãƒ¼ãƒˆ
  */
 BOOL ZMODEMStartReceive(BOOL macro, BOOL autostart)
 {
@@ -1500,11 +1500,11 @@ BOOL ZMODEMStartReceive(BOOL macro, BOOL autostart)
 }
 
 /**
- *	ZMODEM‘—M
+ *	ZMODEMé€ä¿¡
  *
- *	@param[in]	filename			‘—Mƒtƒ@ƒCƒ‹–¼(NULL‚Ì‚Æ‚«Aƒ_ƒCƒAƒƒO‚Å‘I‘ğ‚·‚é)
+ *	@param[in]	filename			é€ä¿¡ãƒ•ã‚¡ã‚¤ãƒ«å(NULLã®ã¨ãã€ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§é¸æŠã™ã‚‹)
  *	@param[in]	ParamBinaryFlag		binary mode
- *	@param[in]	autostart			TURE‚Ì‚Æ‚«©“®ƒXƒ^[ƒg
+ *	@param[in]	autostart			TUREã®ã¨ãè‡ªå‹•ã‚¹ã‚¿ãƒ¼ãƒˆ
  */
 BOOL ZMODEMStartSend(const wchar_t *filename, WORD ParamBinaryFlag, BOOL autostart)
 {

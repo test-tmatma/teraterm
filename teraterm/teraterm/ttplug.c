@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) Robert O'Callahan
  * (C) 2004- TeraTerm Project
@@ -131,8 +131,8 @@ static void loadExtension(wchar_t const *fileName, const wchar_t *UILanguageFile
 			sub_message = L"unknown";
 			break;
 	}
-	// Œ¾Œêƒtƒ@ƒCƒ‹‚É‚æ‚éƒƒbƒZ[ƒW‚Ì‘Û‰»‚ğs‚Á‚Ä‚¢‚é‚ªA‚±‚Ì“_‚Å‚Íİ’è‚ª
-	// ‚Ü‚¾“Ç‚İ‚Ü‚ê‚Ä‚¢‚È‚¢ˆ×AƒƒbƒZ[ƒW‚ª‰pŒê‚Ì‚Ü‚Ü‚Æ‚È‚éB—vŒŸ“¢B
+	// è¨€èªãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚ˆã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®å›½éš›åŒ–ã‚’è¡Œã£ã¦ã„ã‚‹ãŒã€ã“ã®æ™‚ç‚¹ã§ã¯è¨­å®šãŒ
+	// ã¾ã èª­ã¿è¾¼ã¾ã‚Œã¦ã„ãªã„ç‚ºã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒè‹±èªã®ã¾ã¾ã¨ãªã‚‹ã€‚è¦æ¤œè¨ã€‚
 	{
 		static const TTMessageBoxInfoW info = {
 			"Tera Term",

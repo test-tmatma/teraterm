@@ -1,4 +1,4 @@
-// based on PuTTY source code
+﻿// based on PuTTY source code
 /*
  * winjump.c: support for Windows 7 jump lists.
  *

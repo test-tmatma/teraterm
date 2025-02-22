@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2024- TeraTerm Project
  * All rights reserved.
  *
@@ -70,15 +70,15 @@ static UINT_PTR CALLBACK TFontHook(HWND Dialog, UINT Message, WPARAM wParam, LPA
 		case WM_COMMAND:
 			if (LOWORD(wParam) == cmb2) {
 				if (HIWORD(wParam) == CBN_SELCHANGE) {
-					// ƒtƒHƒ“ƒg‚Ì•ÏX‚É‚æ‚é(ƒƒbƒZ[ƒW‚É‚æ‚é)ƒXƒ^ƒCƒ‹‚Ì•ÏX‚Å‚Í
-					// cmb2 ‚©‚ç‚Ì’Ê’m‚ª—ˆ‚È‚¢
+					// ãƒ•ã‚©ãƒ³ãƒˆã®å¤‰æ›´ã«ã‚ˆã‚‹(ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã«ã‚ˆã‚‹)ã‚¹ã‚¿ã‚¤ãƒ«ã®å¤‰æ›´ã§ã¯
+					// cmb2 ã‹ã‚‰ã®é€šçŸ¥ãŒæ¥ãªã„
 					SendMessage(GetDlgItem(Dialog, cmb2), CB_GETCURSEL, 0, 0);
 				}
 			}
 			else if (LOWORD(wParam) == cmb1) {
 				if (HIWORD(wParam) == CBN_SELCHANGE) {
-					// ƒtƒHƒ“ƒg‚Ì•ÏX‘O‚Éˆê•Û‘¶‚³‚ê‚½ƒXƒ^ƒCƒ‹‚ª
-					// ‚±‚±‚ğ”²‚¯‚½‚ ‚Æ‚É‰ü‚ß‚ÄƒZƒbƒg‚³‚ê‚Ä‚µ‚Ü‚¤‚æ‚¤‚¾
+					// ãƒ•ã‚©ãƒ³ãƒˆã®å¤‰æ›´å‰ã«ä¸€æ™‚ä¿å­˜ã•ã‚ŒãŸã‚¹ã‚¿ã‚¤ãƒ«ãŒ
+					// ã“ã“ã‚’æŠœã‘ãŸã‚ã¨ã«æ”¹ã‚ã¦ã‚»ãƒƒãƒˆã•ã‚Œã¦ã—ã¾ã†ã‚ˆã†ã 
 					SendMessage(GetDlgItem(Dialog, cmb2), CB_GETCURSEL, 0, 0);
 				}
 			}
@@ -117,8 +117,8 @@ static BOOL ChooseFontDlgForTek(HWND WndParent, LPLOGFONTA LogFont, const TTTSet
 BOOL WINAPI _ChooseFontDlg(HWND WndParent, LPLOGFONTA LogFont, /*const*/ TTTSet *ts)
 {
 	if (AddsettingCheckWin(WndParent) == ADDSETTING_WIN_TEK) {
-		// TEK Window ‚©‚çƒR[ƒ‹‚³‚ê‚½ê‡
-		// ƒtƒHƒ“ƒg‘I‘ğƒ_ƒCƒAƒƒO‚ğg—p‚·‚é
+		// TEK Window ã‹ã‚‰ã‚³ãƒ¼ãƒ«ã•ã‚ŒãŸå ´åˆ
+		// ãƒ•ã‚©ãƒ³ãƒˆé¸æŠãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’ä½¿ç”¨ã™ã‚‹
 		return ChooseFontDlgForTek(WndParent, LogFont, ts);
 	}
 

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2022- TeraTerm Project
  * All rights reserved.
  *
@@ -26,8 +26,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// ttermpro.exe “à‚ÅŽg—p‚·‚é’Ê’mŠÖ˜A‚ÌAPI
-// ƒvƒ‰ƒOƒCƒ“‚©‚çŽg—p‚·‚éAPI‚Í ttcmn_notify.h ‚ðŽQÆ
+// ttermpro.exe å†…ã§ä½¿ç”¨ã™ã‚‹é€šçŸ¥é–¢é€£ã®API
+// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‹ã‚‰ä½¿ç”¨ã™ã‚‹APIã¯ ttcmn_notify.h ã‚’å‚ç…§
 
 #pragma once
 

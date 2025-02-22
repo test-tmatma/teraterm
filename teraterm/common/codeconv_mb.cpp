@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2024- TeraTerm Project
  * All rights reserved.
  *
@@ -26,7 +26,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* Multi Byte, Double Byte, Single Byte �֘A�̕����R�[�h�ϊ� */
+/* Multi Byte, Double Byte, Single Byte 関連の文字コード変換 */
 
 #include <windows.h>
 #include "codeconv_mb.h"
@@ -93,8 +93,8 @@ WORD CodeConvSJIS2EUC(WORD KCode)
 
 /* Russian charset conversion table by Andrey Nikiforov 19971114 */
 /* Updated by NAGATA Shinya 20111228 */
-//   �ϊ���ɑΉ����镶���E�L�����Ȃ��Ƃ�����������̕\�Ŏ���
-//     �Y�������͏d�����Ȃ��悤�Ɋ��蓖�Ă�(�I���W�i���������Ȃ��Ă���̂�)
+//   変換先に対応する文字・記号がないところをすぐ下の表で示す
+//     該当部分は重複がないように割り当てる(オリジナルがそうなっているので)
 static const BYTE cpconv[4][4][128] =
 {
 	{

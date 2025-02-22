@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2022- TeraTerm Project
  * All rights reserved.
  *
@@ -26,7 +26,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// ƒvƒ‰ƒOƒCƒ“‚©‚çŽg—p‚·‚éAPI
+// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‹ã‚‰ä½¿ç”¨ã™ã‚‹API
 
 #pragma once
 

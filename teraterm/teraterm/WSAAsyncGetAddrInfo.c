@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2010- TeraTerm Project
  * All rights reserved.
  *
@@ -74,9 +74,9 @@ HANDLE PASCAL WSAAsyncGetAddrInfo(HWND hWnd, unsigned int wMsg,
 	/* packing arguments struct addrinfo_args */
 	ga->hWnd = hWnd;
 	ga->wMsg = wMsg;
-	ga->hostname = _strdup(hostname); // ƒ|ƒCƒ“ƒ^‚¾‚¯“n‚·‚ÆAƒXƒŒƒbƒhæ‚Å•s’è‚Æ‚È‚éB(2012.11.7 yutaka)
+	ga->hostname = _strdup(hostname); // ãƒã‚¤ãƒ³ã‚¿ã ã‘æ¸¡ã™ã¨ã€ã‚¹ãƒ¬ãƒƒãƒ‰å…ˆã§ä¸å®šã¨ãªã‚‹ã€‚(2012.11.7 yutaka)
 	ga->portname = _strdup(portname);
-	ga->hints = *hints; // ƒ|ƒCƒ“ƒ^‚¾‚¯“n‚·‚ÆAƒXƒŒƒbƒhæ‚Å•s’è‚Æ‚È‚éB(2016.3.11 yutaka)
+	ga->hints = *hints; // ãƒã‚¤ãƒ³ã‚¿ã ã‘æ¸¡ã™ã¨ã€ã‚¹ãƒ¬ãƒƒãƒ‰å…ˆã§ä¸å®šã¨ãªã‚‹ã€‚(2016.3.11 yutaka)
 	ga->res = res;
 
 	ga->lpHandle = (HANDLE *)malloc(sizeof(HANDLE));

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 1998-2001, Robert O'Callahan
  * (C) 2004- TeraTerm Project
  * All rights reserved.

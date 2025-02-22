@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2005- TeraTerm Project
  * All rights reserved.
@@ -74,7 +74,7 @@
 typedef enum {
 	TypUnknown = 0,
 	TypInteger = 1,
-	TypLogical = 2,		// –¢Žg—p?
+	TypLogical = 2,		// æœªä½¿ç”¨?
 	TypString = 3,
 	TypLabel = 4,
 	TypIntArray = 5,

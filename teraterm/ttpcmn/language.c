@@ -1,4 +1,4 @@
-/*
+Ôªø/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2006- TeraTerm Project
  * All rights reserved.
@@ -37,7 +37,7 @@
 #define DllExport __declspec(dllexport)
 #include "language.h"
 
-// exportÇ≥ÇÍÇƒÇ¢ÇÈ
+// export„Åï„Çå„Å¶„ÅÑ„Çã
 DllExport unsigned short ConvertUnicode(unsigned short code, const codemap_t *table, int tmax)
 {
 	int low, mid, high;

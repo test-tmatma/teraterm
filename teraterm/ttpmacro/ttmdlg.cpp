@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2006- TeraTerm Project
  * All rights reserved.
@@ -67,7 +67,7 @@ int ParamCnt;
 int ParamsSize;
 BOOL SleepFlag;
 
-// (x,y) = (CW_USEDEFAULT, CW_USEDEFAULT)‚Ì‚Æ‚«ƒZƒ“ƒ^[‚É•\¦
+// (x,y) = (CW_USEDEFAULT, CW_USEDEFAULT)ã®ã¨ãã‚»ãƒ³ã‚¿ãƒ¼ã«è¡¨ç¤º
 static int DlgPosX = CW_USEDEFAULT;
 static int DlgPosY = CW_USEDEFAULT;
 static int DlgPosition = 0;
@@ -157,7 +157,7 @@ BOOL GetFileName(HWND HWin, wchar_t **fname)
 	FNameRec.lpstrFilter = FNFilter;
 	FNameRec.nFilterIndex = 1;
 	FNameRec.lpstrFile = FileName;
-	// ˆÈ‘O“Ç‚İ‚ñ‚¾ .ttl ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ğ‹L‰¯‚Å‚«‚é‚æ‚¤‚ÉA‰ŠúƒfƒBƒŒƒNƒgƒŠ‚ğŒÅ’è‚É‚µ‚È‚¢B
+	// ä»¥å‰èª­ã¿è¾¼ã‚“ã  .ttl ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã‚’è¨˜æ†¶ã§ãã‚‹ã‚ˆã†ã«ã€åˆæœŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å›ºå®šã«ã—ãªã„ã€‚
 	// (2008.4.7 yutaka)
 #if 0
 	FNameRec.lpstrInitialDir = HomeDirW;
@@ -192,8 +192,8 @@ void SetDlgPos(int x, int y, int position, int offset_x, int offset_y)
 /*
   SetDlgPosEX()
 
-   setdlgpos ‚Ìƒpƒ‰ƒ[ƒ^w’è‚Ì‚¤‚¿A‰º‹L‚ÌNo.3‚Æ4‚ğˆ—‚·‚éB
-   No.1‚ÆNo.2‚Í macrodlgbase.h ‚Ì SetDlgPos() ‚Åˆ—‚·‚éB
+   setdlgpos ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿æŒ‡å®šã®ã†ã¡ã€ä¸‹è¨˜ã®No.3ã¨4ã‚’å‡¦ç†ã™ã‚‹ã€‚
+   No.1ã¨No.2ã¯ macrodlgbase.h ã® SetDlgPos() ã§å‡¦ç†ã™ã‚‹ã€‚
 
    setdlgpos [<x> <y> [<position> [<offset x> <offset y>]]]
    1. setdlgpos
@@ -213,7 +213,7 @@ int SetDlgPosEX(HWND hWnd, int width, int height, int *PosX, int *PosY) {
 	POINT pt;
 
 	if (hWnd == NULL || DlgPosition == 0) {
-		return -1;		// ŒÅ’èˆÊ’u
+		return -1;		// å›ºå®šä½ç½®
 	}
 
 	vtwin_mag = 1;
@@ -227,7 +227,7 @@ int SetDlgPosEX(HWND hWnd, int width, int height, int *PosX, int *PosY) {
 			return -1;
 		}
 
-		// Tera Term‚ÆMACRO‚ÌƒƒCƒ“ƒEƒCƒ“ƒhƒE‚Ì•\¦æƒfƒBƒXƒvƒŒƒC‚ª•Ê‚ÅDPI‚ªˆÙ‚È‚éê‡‚Ì•â³
+		// Tera Termã¨MACROã®ãƒ¡ã‚¤ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤ºå…ˆãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãŒåˆ¥ã§DPIãŒç•°ãªã‚‹å ´åˆã®è£œæ­£
 		if (DPIAware == DPI_AWARENESS_CONTEXT_UNAWARE) {
 			if (pMonitorFromRect != NULL && pGetDpiForMonitor != NULL) {
 				HMONITOR hMonitor;
@@ -258,17 +258,17 @@ int SetDlgPosEX(HWND hWnd, int width, int height, int *PosX, int *PosY) {
 	}
 	GetDesktopRectFromPoint(&pt, &rcDesktop);
 
-	if (DlgPosition >= 1 && DlgPosition <= 5) {					// ƒfƒBƒXƒvƒŒƒCŠî€
+	if (DlgPosition >= 1 && DlgPosition <= 5) {					// ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤åŸºæº–
 		c_x = rcDesktop.left;
 		c_y = rcDesktop.top;
 		c_width  = rcDesktop.right - rcDesktop.left;
 		c_height = rcDesktop.bottom - rcDesktop.top;
 		position = DlgPosition;
-	} else if (DlgPosition >= 6 && DlgPosition <= 10) {			// vt windowŠî€
+	} else if (DlgPosition >= 6 && DlgPosition <= 10) {			// vt windowåŸºæº–
 		if (! Linked || showflag == 1 || showflag == 3) {
-			return -1; // ”ñƒŠƒ“ƒNA1:Å¬‰»A3:”ñ•\¦ ‚Ìê‡‚ÍŒÅ’èˆÊ’u
+			return -1; // éãƒªãƒ³ã‚¯ã€1:æœ€å°åŒ–ã€3:éè¡¨ç¤º ã®å ´åˆã¯å›ºå®šä½ç½®
 		}
-		// DpiAware=off‚Ìê‡‚Ì•â³
+		// DpiAware=offã®å ´åˆã®è£œæ­£
 		if (DPIAware == DPI_AWARENESS_CONTEXT_UNAWARE) {
 			c_x 	 = (int)(c_x 	  * vtwin_mag);
 			c_y 	 = (int)(c_y 	  * vtwin_mag);
@@ -281,23 +281,23 @@ int SetDlgPosEX(HWND hWnd, int width, int height, int *PosX, int *PosY) {
 	}
 
 	switch (position) {
-	case 1: // ¶ã‹÷
+	case 1: // å·¦ä¸Šéš…
 		new_x = c_x;
 		new_y = c_y;
 		break;
-	case 2: // ‰Eã‹÷
+	case 2: // å³ä¸Šéš…
 		new_x = c_x + c_width - new_width;
 		new_y = c_y;
 		break;
-	case 3: // ¶‰º‹÷
+	case 3: // å·¦ä¸‹éš…
 		new_x = c_x;
 		new_y = c_y + c_height - new_height;
 		break;
-	case 4: // ‰E‰º‹÷
+	case 4: // å³ä¸‹éš…
 		new_x = c_x + c_width  - new_width;
 		new_y = c_y + c_height - new_height;
 		break;
-	case 5: // ’†‰›
+	case 5: // ä¸­å¤®
 		new_x = c_x + c_width  / 2 - new_width  / 2;
 		new_y = c_y + c_height / 2 - new_height / 2;
 		break;
@@ -305,7 +305,7 @@ int SetDlgPosEX(HWND hWnd, int width, int height, int *PosX, int *PosY) {
 	new_x += int(DlgOffsetX / vtwin_mag);
 	new_y += int(DlgOffsetY / vtwin_mag);
 
-	// ƒfƒXƒNƒgƒbƒv‚©‚ç‚Í‚İo‚³‚È‚¢‚æ‚¤’²®
+	// ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã‹ã‚‰ã¯ã¿å‡ºã•ãªã„ã‚ˆã†èª¿æ•´
 	if (new_x + new_width > rcDesktop.right) {
 		new_x = rcDesktop.right - new_width;
 	}
@@ -384,9 +384,9 @@ void BringupStatDlg()
 }
 
 /**
- * @retval 0ˆÈã	‘I‘ğ€–Ú
- * @retval -1		cancelƒ{ƒ^ƒ“
- * @retval -2		closeƒ{ƒ^ƒ“
+ * @retval 0ä»¥ä¸Š	é¸æŠé …ç›®
+ * @retval -1		cancelãƒœã‚¿ãƒ³
+ * @retval -2		closeãƒœã‚¿ãƒ³
  */
 int OpenListDlg(const wchar_t *Text, const wchar_t *Caption, wchar_t **Lists, int Selected, int ext, int DlgWidth, int DlgHeight)
 {

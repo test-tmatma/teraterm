@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2019- TeraTerm Project
  * All rights reserved.
  *
@@ -51,10 +51,10 @@ void SendMemInitDelay(SendMem *sm, SendMemDelayType delay_type, DWORD delay_tick
 void SendMemInitDialog(SendMem *sm, HINSTANCE hInstance, HWND hWndParent, const char *UILanguageFile);
 void SendMemInitDialogCaption(SendMem *sm, const wchar_t *caption);
 void SendMemInitDialogFilename(SendMem *sm, const wchar_t *filename);
-BOOL SendMemStart(SendMem *sm);		// ‘—MŠJn
+BOOL SendMemStart(SendMem *sm);		// é€ä¿¡é–‹å§‹
 void SendMemFinish(SendMem *sm);
 
-// idle‚©‚ç‚Ì‘—M—pAPI
+// idleã‹ã‚‰ã®é€ä¿¡ç”¨API
 void SendMemContinuously(void);
 
 // convenient function

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2024- TeraTerm Project
  * All rights reserved.
@@ -54,11 +54,11 @@
 
 #include "ttdlg.h"
 
-#undef EFFECT_ENABLED	// �G�t�F�N�g�̗L����
-#undef TEXTURE_ENABLED	// �e�N�X�`���̗L����
+#undef EFFECT_ENABLED	// エフェクトの有効可否
+#undef TEXTURE_ENABLED	// テクスチャの有効可否
 
 #if defined(_MSC_VER)
-// �r���h�����Ƃ��Ɏg��ꂽVisual C++�̃o�[�W�������擾����(2009.3.3 yutaka)
+// ビルドしたときに使われたVisual C++のバージョンを取得する(2009.3.3 yutaka)
 static void GetCompilerInfo(char *buf, size_t buf_size)
 {
 	char tmpbuf[128];
@@ -139,14 +139,14 @@ static void GetCompilerInfo(char *buf, size_t buf_size)
 #endif
 
 #if defined(WDK_NTDDI_VERSION)
-// �r���h�����Ƃ��Ɏg��ꂽ SDK �̃o�[�W�������擾����
+// ビルドしたときに使われた SDK のバージョンを取得する
 // URL: https://developer.microsoft.com/en-us/windows/downloads/sdk-archive/
-// �o�[�W�����ԍ��ɂ�
-// (1) Visual Studio �Ńv���W�F�N�g�̃v���p�e�B�� "Windows SDK �o�[�W����" �ɗ񋓂����o�[�W����
-// (2) �C���X�g�[�����ꂽ SDK ���u�A�v���Ƌ@�\�v�ŕ\�������o�[�W����
-// (3) ��L URL �ł̕\���o�[�W����
-// (4) �C���X�g�[����t�H���_��
-// �����邪�A�Ō�̃u���b�N�̐����͓����ɂȂ�Ȃ����Ƃ������B
+// バージョン番号には
+// (1) Visual Studio でプロジェクトのプロパティの "Windows SDK バージョン" に列挙されるバージョン
+// (2) インストールされた SDK が「アプリと機能」で表示されるバージョン
+// (3) 上記 URL での表示バージョン
+// (4) インストール先フォルダ名
+// があるが、最後のブロックの数字は同じにならないことが多い。
 // e.g. (1) 10.0.18362.0, (2) 10.0.18362.1, (3) 10.0.18362.1, (4) 10.0.18362.0
 //      (1) 10.0.22000.0, (2) 10.0.22000.832, (3) 10.0.22000.832, (4) 10.0.22000.0
 static void GetSDKInfo(char *buf, size_t buf_size)
@@ -155,13 +155,13 @@ static void GetSDKInfo(char *buf, size_t buf_size)
 		strncpy_s(buf, buf_size, "Windows SDK", _TRUNCATE);
 		switch (WDK_NTDDI_VERSION) {
 			case 0x0A00000B: // NTDDI_WIN10_CO
-				             // 10.0.22000.194 �����݂��邪����ł��Ȃ�
+				             // 10.0.22000.194 も存在するが判定できない
 				strncat_s(buf, buf_size, " for Windows 11 (10.0.22000.832)", _TRUNCATE);
 				break;
 			case 0x0A00000C: // NTDDI_WIN10_NI
-				             // 10.0.22621.1 �����݂��邪����ł��Ȃ�
-				             // (2)�C���X�g�[��, (3)URL �ł͕ʈ����� 10.0.22621.1778 ����������ɂȂ�
-				             // AppVeyor �Ŏg���Ă���͂��̃o�[�W�����ԍ���Ԃ�
+				             // 10.0.22621.1 も存在するが判定できない
+				             // (2)インストーラ, (3)URL では別扱いの 10.0.22621.1778 も同じ判定になる
+				             // AppVeyor で使われているはずのバージョン番号を返す
 				strncat_s(buf, buf_size, " for Windows 11 (10.0.22621.755)", _TRUNCATE);
 				break;
 			default: {
@@ -261,7 +261,7 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 
 	switch (Message) {
 		case WM_INITDIALOG:
-			// �A�C�R���𓮓I�ɃZ�b�g
+			// アイコンを動的にセット
 			{
 #if defined(EFFECT_ENABLED) || defined(TEXTURE_ENABLED)
 				int fuLoad = LR_DEFAULTCOLOR;
@@ -271,8 +271,8 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 				}
 				hicon = LoadImage(hInst, MAKEINTRESOURCE(IDI_TTERM),
 				                  IMAGE_ICON, icon_w, icon_h, fuLoad);
-				// Picture Control �ɕ`�悷��ƁA�Ȃ������ߐF�����߂ɂȂ炸�A���ƂȂ��Ă��܂����߁A
-				// WM_PAINT �ŕ`�悷��B
+				// Picture Control に描画すると、なぜか透過色が透過にならず、黒となってしまうため、
+				// WM_PAINT で描画する。
 				dlghicon = hicon;
 #else
 				SetDlgItemIcon(Dialog, IDC_TT_ICON, MAKEINTRESOURCEW(IDI_TTERM), 0, 0);
@@ -281,7 +281,7 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 
 			SetDlgTextsW(Dialog, TextInfos, _countof(TextInfos), ts.UILanguageFileW);
 
-			// Tera Term �{�̂̃o�[�W����
+			// Tera Term 本体のバージョン
 			_snprintf_s(buf, sizeof(buf), _TRUNCATE, "Version %d.%d ", TT_VERSION_MAJOR, TT_VERSION_MINOR);
 			{
 				char *substr = GetVersionSubstr();
@@ -290,17 +290,17 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 			}
 			SetDlgItemTextA(Dialog, IDC_TT_VERSION, buf);
 
-			// Oniguruma�̃o�[�W����
+			// Onigurumaのバージョン
 			_snprintf_s(buf, sizeof(buf), _TRUNCATE, "Oniguruma %s", onig_version());
 			SetDlgItemTextA(Dialog, IDC_ONIGURUMA_LABEL, buf);
 
-			// SFMT�̃o�[�W������ݒ肷��
+			// SFMTのバージョンを設定する
 			_snprintf_s(buf, sizeof(buf), _TRUNCATE, "SFMT %s", SFMT_VERSION);
 			SetDlgItemTextA(Dialog, IDC_SFMT_VERSION, buf);
 
 			// build info
 			{
-				// �R���p�C���ASDK�A�����AGit�u�����`��(�����)
+				// コンパイラ、SDK、日時、Gitブランチ名(あれば)
 				char *info;
 				char tmpbuf[128];
 				char sdk[128];
@@ -332,14 +332,14 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 
 #if defined(EFFECT_ENABLED) || defined(TEXTURE_ENABLED)
 			/*
-			 * �_�C�A���O�̃r�b�g�}�b�v�����s���A�w�i�ɃG�t�F�N�g����������悤�ɂ���B
+			 * ダイアログのビットマップ化を行い、背景にエフェクトをかけられるようにする。
 			 * (2011.5.7 yutaka)
 			 */
-			// �_�C�A���O�̃T�C�Y
+			// ダイアログのサイズ
 			GetWindowRect(Dialog, &dlgrc);
 			dlgw = dlgrc.right - dlgrc.left;
 			dlgh = dlgrc.bottom - dlgrc.top;
-			// �r�b�g�}�b�v�̍쐬
+			// ビットマップの作成
 			dlgdc = CreateCompatibleDC(NULL);
 			ZeroMemory(&bmiHeader, sizeof(BITMAPINFOHEADER));
 			bmiHeader.biSize      = sizeof(BITMAPINFOHEADER);
@@ -350,7 +350,7 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 			bmi.bmiHeader = bmiHeader;
 			dlgbmp = CreateDIBSection(NULL, (LPBITMAPINFO)&bmi, DIB_RGB_COLORS, &dlgpixel, NULL, 0);
 			dlgprevbmp = (HBITMAP)SelectObject(dlgdc, dlgbmp);
-			// �r�b�g�}�b�v�̔w�i�F�i���Ă����ۂ��j�����B
+			// ビットマップの背景色（朝焼けっぽい）を作る。
 			for (y = 0 ; y < dlgh ; y++) {
 				double dx = (double)(255 - 180) / dlgw;
 				double dy = (double)255/dlgh;
@@ -359,11 +359,11 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 					r = min((int)(180+dx*x), 255);
 					g = min((int)(180+dx*x), 255);
 					b = max((int)(255-y*dx), 0);
-					// ��f�̕��т́A���ʃo�C�g����B, G, R, A�ƂȂ�B
+					// 画素の並びは、下位バイトからB, G, R, Aとなる。
 					dlgpixel[POS(x, y)] = b | g << 8 | r << 16;
 				}
 			}
-			// 2D Water effect �p
+			// 2D Water effect 用
 			wavemap = calloc(sizeof(short), dlgw * dlgh);
 			wavemap_old = calloc(sizeof(short), dlgw * dlgh);
 			dlgorgpixel = calloc(sizeof(DWORD), dlgw * dlgh);
@@ -373,11 +373,11 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 
 
 #ifdef EFFECT_ENABLED
-			// �G�t�F�N�g�^�C�}�[�̊J�n
+			// エフェクトタイマーの開始
 			SetTimer(Dialog, ID_EFFECT_TIMER, 100, NULL);
 #endif
 
-			// ��ʂ̐F���𒲂ׂ�B
+			// 画面の色数を調べる。
 			hwnd = GetDesktopWindow();
 			hdc = GetDC(hwnd);
 			bitspixel = GetDeviceCaps(hdc, BITSPIXEL);
@@ -425,7 +425,7 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 			break;
 
 #if defined(EFFECT_ENABLED) || defined(TEXTURE_ENABLED)
-		// static text�̔w�i�𓧉߂�����B
+		// static textの背景を透過させる。
 		case WM_CTLCOLORSTATIC:
 			SetBkMode((HDC)wParam, TRANSPARENT);
 			return (BOOL)GetStockObject( NULL_BRUSH );
@@ -486,8 +486,8 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 				}
 				waveflag ^= 1;
 
-				// ���ʂ̌v�Z
-				// �A���S���Y���͉��L�T�C�g(2D Water)���B
+				// 水面の計算
+				// アルゴリズムは下記サイト(2D Water)より。
 				// cf. http://freespace.virgin.net/hugo.elias/graphics/x_water.htm
 				for (y = 1; y < dlgh - 1 ; y++) {
 					for (x = 1; x < dlgw - 1 ; x++) {
@@ -500,7 +500,7 @@ static INT_PTR CALLBACK AboutDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARA
 					}
 				}
 
-				// ���ʂ̕`��
+				// 水面の描画
 				for (y = 1; y < dlgh - 1 ; y++) {
 					for (x = 1; x < dlgw - 1 ; x++) {
 						xdiff = p_old[POS(x+1,y)] - p_old[POS(x,y)];

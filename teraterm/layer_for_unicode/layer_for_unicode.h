@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2019- TeraTerm Project
  * All rights reserved.
  *
@@ -29,7 +29,7 @@
 /*
  * W to A Wrapper
  *
- * API–¼‚ÍW”Å‚Ì“ª‚É '_' ‚ğ•t‚¯‚½‚à‚Ì‚ğg—p‚·‚é
+ * APIåã¯Wç‰ˆã®é ­ã« '_' ã‚’ä»˜ã‘ãŸã‚‚ã®ã‚’ä½¿ç”¨ã™ã‚‹
  */
 
 #pragma once

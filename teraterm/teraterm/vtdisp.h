@@ -1,4 +1,4 @@
-/*
+Ôªø/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2008- TeraTerm Project
  * All rights reserved.
@@ -57,7 +57,7 @@ extern "C" {
 #define CS_ANSICOLOR_ALL   270
 #define CS_SP_ALL          271
 #define CS_UNSPEC          0xffffffff
-#define CS_ALL             0xfffffffe	// DispResetColor() ÇæÇØÇ≈égóp
+#define CS_ALL             0xfffffffe	// DispResetColor() „Å†„Åë„Åß‰ΩøÁî®
 
 /* prototypes */
 void BGInitialize(BOOL initialize_once);

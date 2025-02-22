@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2006- TeraTerm Project
  * All rights reserved.
@@ -92,7 +92,7 @@ static void FreeUserKey(PKeyMap KeyMap_)
 }
 
 /**
- *	•K—v‚È‚çKeyMap ‚ðŠm•ÛA‰Šú‰»‚·‚é
+ *	å¿…è¦ãªã‚‰KeyMap ã‚’ç¢ºä¿ã€åˆæœŸåŒ–ã™ã‚‹
  */
 static void InitKeyMap()
 {
@@ -843,7 +843,7 @@ static void GetKeyStr(HWND HWin, const PKeyMap KeyMap_, WORD KeyCode, BOOL Appli
 					p++;
 				}
 				if (i == KeyMap_->UserKeyCount){
-					// ƒ†[ƒU[ƒL[‚ÉÝ’è‚ª‚È‚¢
+					// ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚­ãƒ¼ã«è¨­å®šãŒãªã„
 					return;
 				}
 				*Type = p->type;

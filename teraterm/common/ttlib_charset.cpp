@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2021- TeraTerm Project
  * All rights reserved.
  *
@@ -68,8 +68,8 @@ static const TKanjiList KanjiList[] = {
 };
 
 /**
- *	\‘¢‘Ì‚Ì1—v‘f‚ğæ“¾
- *	”ÍˆÍŠO‚É‚È‚Á‚½‚çNULL‚ª•Ô‚é
+ *	æ§‹é€ ä½“ã®1è¦ç´ ã‚’å–å¾—
+ *	ç¯„å›²å¤–ã«ãªã£ãŸã‚‰NULLãŒè¿”ã‚‹
  */
 const TKanjiList *GetKanjiList(int index)
 {
@@ -80,12 +80,12 @@ const TKanjiList *GetKanjiList(int index)
 }
 
 /**
- *	Š¿šƒR[ƒh•¶š—ñ‚ğæ“¾
- *	iniƒtƒ@ƒCƒ‹‚É•Û‘¶‚·‚éŠ¿šƒR[ƒh•¶š—ñ—p
+ *	æ¼¢å­—ã‚³ãƒ¼ãƒ‰æ–‡å­—åˆ—ã‚’å–å¾—
+ *	iniãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã™ã‚‹æ¼¢å­—ã‚³ãƒ¼ãƒ‰æ–‡å­—åˆ—ç”¨
  *
  *	@param[in]	kanji_code (=ts.KanjiCode (receive) or ts.KanjiCodeSend)
  *						IdEUC, IdJIS, IdUTF8, ...
- *	@return	Š¿šƒR[ƒh•¶š—ñ
+ *	@return	æ¼¢å­—ã‚³ãƒ¼ãƒ‰æ–‡å­—åˆ—
  */
 const char *GetKanjiCodeStr(int kanji_code)
 {
@@ -98,12 +98,12 @@ const char *GetKanjiCodeStr(int kanji_code)
 }
 
 /**
- *	Š¿šƒR[ƒh‚ğæ“¾
- *	iniƒtƒ@ƒCƒ‹‚É•Û‘¶‚³‚ê‚Ä‚¢‚éŠ¿šƒR[ƒh•¶š—ñ‚ğŠ¿šƒR[ƒh‚É•ÏŠ·‚·‚é
+ *	æ¼¢å­—ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—
+ *	iniãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã•ã‚Œã¦ã„ã‚‹æ¼¢å­—ã‚³ãƒ¼ãƒ‰æ–‡å­—åˆ—ã‚’æ¼¢å­—ã‚³ãƒ¼ãƒ‰ã«å¤‰æ›ã™ã‚‹
 
  *	@param[in]	kanji_code_str
- *						Š¿šƒR[ƒh•¶š—ñ
- *	@return	Š¿šƒR[ƒh
+ *						æ¼¢å­—ã‚³ãƒ¼ãƒ‰æ–‡å­—åˆ—
+ *	@return	æ¼¢å­—ã‚³ãƒ¼ãƒ‰
  */
 int GetKanjiCodeFromStr(const char *kanji_code_str)
 {
@@ -132,9 +132,9 @@ int GetKanjiCodeFromStrW(const wchar_t *kanji_code_strW)
 }
 
 /**
- *	Š¿šƒR[ƒh‚©‚ç ISO8859‚Ì•””Ô†‚ğ•Ô‚·
+ *	æ¼¢å­—ã‚³ãƒ¼ãƒ‰ã‹ã‚‰ ISO8859ã®éƒ¨ç•ªå·ã‚’è¿”ã™
  *	@param	kanjicode	IdISO8859-1...16
- *	@return 1...16		ISO8859‚ÉŠÖŒW‚È‚¢Š¿šƒR[ƒh‚Ìê‡‚Í1‚ğ•Ô‚·
+ *	@return 1...16		ISO8859ã«é–¢ä¿‚ãªã„æ¼¢å­—ã‚³ãƒ¼ãƒ‰ã®å ´åˆã¯1ã‚’è¿”ã™
  */
 int KanjiCodeToISO8859Part(int kanjicode)
 {

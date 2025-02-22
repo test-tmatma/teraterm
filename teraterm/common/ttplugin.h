@@ -1,4 +1,4 @@
-/* Tera Term extension mechanism
+ï»¿/* Tera Term extension mechanism
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -34,7 +34,7 @@
 #include "ttfileio.h"
 #include "hostname_rec.h"
 
-// ƒvƒ‰ƒOƒCƒ“‚Ìƒo[ƒWƒ‡ƒ“
+// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 #define TTVERSION (WORD)500	/* version 5.00 */
 
 typedef struct {

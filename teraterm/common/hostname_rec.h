@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2023- TeraTerm Project
  * All rights reserved.
  *
@@ -32,8 +32,8 @@
 extern "C" {
 #endif
 
-// ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“Å‘å’·
-// (TGetHNRec.HostName‚ÌŠm•ÛÏ‚İ•¶š’·)
+// ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³æœ€å¤§é•·
+// (TGetHNRec.HostNameã®ç¢ºä¿æ¸ˆã¿æ–‡å­—é•·)
 //
 #define HostNameMaxLength 1024
 //#define HostNameMaxLength 80

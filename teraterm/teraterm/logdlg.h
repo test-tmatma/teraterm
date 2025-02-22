@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2023- TeraTerm Project
  * All rights reserved.
  *
@@ -31,9 +31,9 @@
 #include "filesys_log.h"	// for LogCode_t
 
 typedef struct {
-	wchar_t *filename;		// [in] ƒtƒ@ƒCƒ‹–¼‰Šú’l(NULL=default) [out] “ü—Íƒtƒ@ƒCƒ‹–¼Afree()‚·‚é‚±‚Æ
+	wchar_t *filename;		// [in] ãƒ•ã‚¡ã‚¤ãƒ«ååˆæœŸå€¤(NULL=default) [out] å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«åã€free()ã™ã‚‹ã“ã¨
 	BOOL append;			// TRUE/FALSE = append/new(overwrite)
-	BOOL bom;				// TRUE = BOM‚ ‚è
+	BOOL bom;				// TRUE = BOMã‚ã‚Š
 	LogCode_t code;
 	TTTSet *pts;
 	TComVar *pcv;

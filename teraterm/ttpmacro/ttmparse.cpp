@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2005- TeraTerm Project
  * All rights reserved.
@@ -42,15 +42,15 @@
 #include "ttmparse.h"
 #include "ttmbuff.h"
 
-/* CŒ¾ŒêƒXƒ^ƒCƒ‹‚ÌƒRƒƒ“ƒg‚ğƒTƒ|[ƒg‚·‚é‚©‚Ç‚¤‚© (2009.7.2 yutaka) */
+/* Cè¨€èªã‚¹ã‚¿ã‚¤ãƒ«ã®ã‚³ãƒ¡ãƒ³ãƒˆã‚’ã‚µãƒãƒ¼ãƒˆã™ã‚‹ã‹ã©ã†ã‹ (2009.7.2 yutaka) */
 #define SUPPORT_C_STYLE_COMMENT
-static int commenting = 0;   /* CŒ¾ŒêƒRƒƒ“ƒg */
+static int commenting = 0;   /* Cè¨€èªã‚³ãƒ¡ãƒ³ãƒˆ */
 
 WORD TTLStatus = 0;
-char LineBuff[MaxLineLen]; // sƒoƒbƒtƒ@‚ÌƒTƒCƒY‚ğŠg’£‚µ‚½B(2007.6.9 maya)
+char LineBuff[MaxLineLen]; // è¡Œãƒãƒƒãƒ•ã‚¡ã®ã‚µã‚¤ã‚ºã‚’æ‹¡å¼µã—ãŸã€‚(2007.6.9 maya)
 WORD LinePtr;
 WORD LineLen;
-WORD LineParsePtr;  // ƒg[ƒNƒ“‚Ì‰ğÍ‚ğŠJn‚µ‚½ˆÊ’u (2013.6.23 yutaka)
+WORD LineParsePtr;  // ãƒˆãƒ¼ã‚¯ãƒ³ã®è§£æã‚’é–‹å§‹ã—ãŸä½ç½® (2013.6.23 yutaka)
 
 typedef struct {
     int size;
@@ -83,7 +83,7 @@ typedef struct {
 static Variable_t *Variables;
 static int VariableCount;
 
-// ƒg[ƒNƒ“‚Ì‰ğÍŠJnˆÊ’u‚ğXV‚·‚éB
+// ãƒˆãƒ¼ã‚¯ãƒ³ã®è§£æé–‹å§‹ä½ç½®ã‚’æ›´æ–°ã™ã‚‹ã€‚
 static void UpdateLineParsePtr(void)
 {
 	LineParsePtr = LinePtr;
@@ -446,19 +446,19 @@ BOOL CheckReservedWord(PCHAR Str, LPWORD WordId)
 	return (*WordId!=0);
 }
 
-/* CŒ¾ŒêƒRƒƒ“ƒg‚ª•Â‚¶‚ç‚ê‚Ä‚¢‚é‚©‚Ç‚¤‚© */
+/* Cè¨€èªã‚³ãƒ¡ãƒ³ãƒˆãŒé–‰ã˜ã‚‰ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹ */
 int IsCommentClosed(void)
 {
 #ifdef SUPPORT_C_STYLE_COMMENT
 	int ret = (commenting == 0);
 
-	/* ƒRƒƒ“ƒg‚ªn‚Ü‚éè‘O‚Ü‚Å‚ÌƒRƒ}ƒ“ƒh‚ğÀs‚Å‚«‚é‚æ‚¤‚É‚·‚é‚½‚ßA
-	 * “à•”ƒtƒ‰ƒO‚ÍƒNƒŠƒA‚µ‚Ä‚¨‚­B
+	/* ã‚³ãƒ¡ãƒ³ãƒˆãŒå§‹ã¾ã‚‹æ‰‹å‰ã¾ã§ã®ã‚³ãƒãƒ³ãƒ‰ã‚’å®Ÿè¡Œã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã€
+	 * å†…éƒ¨ãƒ•ãƒ©ã‚°ã¯ã‚¯ãƒªã‚¢ã—ã¦ãŠãã€‚
 	 */
 	commenting = 0;
 	return (ret);
 #else
-	// “–ŠY‹@”\‚ª–³Œø‚Ìê‡‚ÍAí‚Éu^v‚ğ•Ô‚·B
+	// å½“è©²æ©Ÿèƒ½ãŒç„¡åŠ¹ã®å ´åˆã¯ã€å¸¸ã«ã€ŒçœŸã€ã‚’è¿”ã™ã€‚
 	return 1;
 #endif
 }
@@ -481,7 +481,7 @@ BYTE GetFirstChar()
 #ifdef SUPPORT_C_STYLE_COMMENT
 	if (commenting) {
 		while (LinePtr < LineLen) {
-			/* ƒRƒƒ“ƒg‚ÌI‚í‚è‚ªo‚Ä‚­‚é‚Ü‚ÅƒXƒLƒbƒv */
+			/* ã‚³ãƒ¡ãƒ³ãƒˆã®çµ‚ã‚ã‚ŠãŒå‡ºã¦ãã‚‹ã¾ã§ã‚¹ã‚­ãƒƒãƒ— */
 			if (LineBuff[LinePtr] == '*' && LineBuff[LinePtr + 1] == '/') {
 				commenting = 0;
 				LinePtr += 2;
@@ -489,7 +489,7 @@ BYTE GetFirstChar()
 			}
 			LinePtr++;
 		}
-		/* ˆês‚ÉƒRƒƒ“ƒg‚ÌI‚í‚è‚ª‚È‚©‚Á‚½‚çAŸ‚Ìs‚ğ“Ç‚ŞB*/
+		/* ä¸€è¡Œã«ã‚³ãƒ¡ãƒ³ãƒˆã®çµ‚ã‚ã‚ŠãŒãªã‹ã£ãŸã‚‰ã€æ¬¡ã®è¡Œã‚’èª­ã‚€ã€‚*/
 		if (commenting)
 			return 0;   // next line
 
@@ -505,13 +505,13 @@ BYTE GetFirstChar()
 		}
 	}
 
-	/* CŒ¾ŒêƒRƒƒ“ƒg‚Ìn‚Ü‚è */
+	/* Cè¨€èªã‚³ãƒ¡ãƒ³ãƒˆã®å§‹ã¾ã‚Š */
 	do {
 		if (LineBuff[LinePtr] == '/' && LineBuff[LinePtr + 1] == '*') {
 			comment_starting = 1;
 			LinePtr += 2;
 			while (LinePtr < LineLen) {
-				/* ƒRƒƒ“ƒg‚ÌI‚í‚è‚ªo‚Ä‚­‚é‚Ü‚ÅƒXƒLƒbƒv */
+				/* ã‚³ãƒ¡ãƒ³ãƒˆã®çµ‚ã‚ã‚ŠãŒå‡ºã¦ãã‚‹ã¾ã§ã‚¹ã‚­ãƒƒãƒ— */
 				if (LineBuff[LinePtr] == '*' && LineBuff[LinePtr + 1] == '/') {
 					LinePtr += 2;
 					comment_starting = 0;
@@ -531,7 +531,7 @@ BYTE GetFirstChar()
 				if (LinePtr<LineLen) b = LineBuff[LinePtr];
 			}
 
-			/* ƒRƒƒ“ƒg‚ÌI‚í‚è‚ªˆês‚É“oê‚µ‚È‚¢ê‡‚ÍA‰i‘±“I‚É‹L˜^‚·‚éB*/
+			/* ã‚³ãƒ¡ãƒ³ãƒˆã®çµ‚ã‚ã‚ŠãŒä¸€è¡Œã«ç™»å ´ã—ãªã„å ´åˆã¯ã€æ°¸ç¶šçš„ã«è¨˜éŒ²ã™ã‚‹ã€‚*/
 			if (comment_starting)
 				commenting = 1;
 		}
@@ -539,8 +539,8 @@ BYTE GetFirstChar()
 			break;
 		}
 
-		/* 1‚Â‚Ìs‚ÉA•¡”‚ÌƒRƒƒ“ƒg‚ª‚ ‚éê‡‚É‘Î‰‚·‚é‚½‚ßAŸ‚Ì•¶š‚ªƒXƒ‰ƒbƒVƒ…‚È‚ç‚ÎA
-		 * ƒ‹[ƒvˆ—‚Ìn‚ß‚É–ß‚·B
+		/* 1ã¤ã®è¡Œã«ã€è¤‡æ•°ã®ã‚³ãƒ¡ãƒ³ãƒˆãŒã‚ã‚‹å ´åˆã«å¯¾å¿œã™ã‚‹ãŸã‚ã€æ¬¡ã®æ–‡å­—ãŒã‚¹ãƒ©ãƒƒã‚·ãƒ¥ãªã‚‰ã°ã€
+		 * ãƒ«ãƒ¼ãƒ—å‡¦ç†ã®å§‹ã‚ã«æˆ»ã™ã€‚
 		 */
 	} while (b == '/');
 #endif
@@ -869,7 +869,7 @@ static Variable_t *NewVar(const char *name, TVariableType type)
 {
 	Variable_t *new_v = (Variable_t * )realloc(Variables, sizeof(Variable_t) * (VariableCount + 1));
 	if (new_v == NULL) {
-		// TODO ƒƒ‚ƒŠ‚ª‚È‚¢
+		// TODO ãƒ¡ãƒ¢ãƒªãŒãªã„
 		return NULL;
 	};
 	Variables = new_v;
@@ -934,20 +934,20 @@ void DelLabVar(WORD ILevel)
 	Variable_t *v = Variables;
 	for (;;) {
 		if (v == &Variables[VariableCount]) {
-			// ÅŒã‚Ü‚Å—ˆ‚½
+			// æœ€å¾Œã¾ã§æ¥ãŸ
 			break;
 		}
 		if (v->Type == TypeLabel) {
 			if (v->Value.Lab.level >= ILevel) {
 				size_t left;
-				// íœ‚·‚é
+				// å‰Šé™¤ã™ã‚‹
 				free(v->Name);
-				// Œã‚ë‚ğ‘O‚É‚Â‚ß‚é
+				// å¾Œã‚ã‚’å‰ã«ã¤ã‚ã‚‹
 				left = &Variables[VariableCount - 1] - v;
 				if (left > 0) {
 					memmove(v, v+1, sizeof(Variable_t) * left);
 				}
-				// 1‚ÂŒ¸‚é
+				// 1ã¤æ¸›ã‚‹
 				VariableCount--;
 
 				continue;
@@ -1709,8 +1709,8 @@ void GetIntVar(PVarId VarId, LPWORD Err)
 }
 
 /**
- *	•¶š—ñ‚ğæ“¾‚·‚é
- *	@param	Str	•¶š—ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^ (MaxStrLen byte ‚Ì—Ìˆæ‚ª•K—v)
+ *	æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹
+ *	@param	Str	æ–‡å­—åˆ—ã¸ã®ãƒã‚¤ãƒ³ã‚¿ (MaxStrLen byte ã®é ˜åŸŸãŒå¿…è¦)
  */
 void GetStrVal(PCHAR Str, LPWORD Err)
 {
@@ -1719,8 +1719,8 @@ void GetStrVal(PCHAR Str, LPWORD Err)
 }
 
 /**
- *	•¶š—ñ‚ğæ“¾‚·‚é
- *	@param	Str	•¶š—ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^ (MaxStrLen byte ‚Ì—Ìˆæ‚ª•K—v)
+ *	æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹
+ *	@param	Str	æ–‡å­—åˆ—ã¸ã®ãƒã‚¤ãƒ³ã‚¿ (MaxStrLen byte ã®é ˜åŸŸãŒå¿…è¦)
  */
 void GetStrVal2(PCHAR Str, LPWORD Err, BOOL AutoConversion)
 {
@@ -1805,24 +1805,24 @@ void SetStrVal(TVarId VarId, const char *Str)
 }
 
 /**
- *	•¶š•Ï”‚Ì“à—e‚ğ•Ô‚·
+ *	æ–‡å­—å¤‰æ•°ã®å†…å®¹ã‚’è¿”ã™
  */
 const char *StrVarPtr(TVarId VarId)
 {
 	Variable_t *v;
 	if (VarId >> 16) {
-		// •¶š—ñ”z—ñ•Ï”
+		// æ–‡å­—åˆ—é…åˆ—å¤‰æ•°
 		const char *strU8;
 		v = &Variables[(VarId>>16)-1];
 		strU8 = v->Value.StrAry.val[VarId & 0xffff];
 		if (strU8 == NULL) {
-			// –¢İ’è‚Ìê‡‚Í nullptr ‚Æ‚È‚Á‚Ä‚¢‚éA""‚ğ•Ô‚·
+			// æœªè¨­å®šã®å ´åˆã¯ nullptr ã¨ãªã£ã¦ã„ã‚‹ã€""ã‚’è¿”ã™
 			strU8 = "";
 		}
 		return strU8;
 	}
 	else {
-		// •¶š—ñ
+		// æ–‡å­—åˆ—
 		v = &Variables[VarId];
 		return v->Value.Str;
 	}

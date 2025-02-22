@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2020- TeraTerm Project
  * All rights reserved.
  *
@@ -28,10 +28,10 @@
 
 #include <windows.h>
 
-// ‹N“®‚ÉƒfƒoƒO—pƒRƒ“ƒ\[ƒ‹‚ğƒI[ƒvƒ“‚·‚é
+// èµ·å‹•æ™‚ã«ãƒ‡ãƒã‚°ç”¨ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‚’ã‚ªãƒ¼ãƒ—ãƒ³ã™ã‚‹
 // #define DEBUG_OPEN_CONSOLE_AT_STARTUP 1
 
-// “ü—ÍƒR[ƒh‚ğƒ_ƒ“ƒv‚·‚é
+// å…¥åŠ›ã‚³ãƒ¼ãƒ‰ã‚’ãƒ€ãƒ³ãƒ—ã™ã‚‹
 // #define DEBUG_DUMP_INPUTCODE 1
 
 #ifdef __cplusplus

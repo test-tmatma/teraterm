@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2024- TeraTerm Project
  * All rights reserved.
  *
@@ -74,8 +74,8 @@ static void LangFree(LangInfo* infos, size_t count)
 }
 
 /**
- *	ƒtƒ@ƒCƒ‹–¼‚ğƒŠƒXƒg‚·‚é(ƒtƒ@ƒCƒ‹–¼‚Ì‚İ)
- *	infos‚É’Ç‰Á‚µ‚Äreturn‚·‚é
+ *	ãƒ•ã‚¡ã‚¤ãƒ«åã‚’ãƒªã‚¹ãƒˆã™ã‚‹(ãƒ•ã‚¡ã‚¤ãƒ«åã®ã¿)
+ *	infosã«è¿½åŠ ã—ã¦returnã™ã‚‹
  */
 static LangInfo* LangAppendFileList(const wchar_t* folder, LangInfo* infos, size_t* infos_size)
 {
@@ -109,7 +109,7 @@ static LangInfo* LangAppendFileList(const wchar_t* folder, LangInfo* infos, size
 }
 
 /**
- *	lngƒtƒ@ƒCƒ‹‚Ì Info ƒZƒNƒVƒ‡ƒ“‚ğ“Ç‚İ‚Ş
+ *	lngãƒ•ã‚¡ã‚¤ãƒ«ã® Info ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã‚’èª­ã¿è¾¼ã‚€
  */
 static void LangRead(LangInfo* infos, size_t infos_size)
 {
@@ -167,7 +167,7 @@ typedef struct DlgDataTag {
 	TTTSet* pts;
 	LangInfo* lng_infos;
 	size_t lng_size;
-	size_t selected_lang;	// ‘I‚Î‚ê‚Ä‚¢‚½lngƒtƒ@ƒCƒ‹”Ô†
+	size_t selected_lang;	// é¸ã°ã‚Œã¦ã„ãŸlngãƒ•ã‚¡ã‚¤ãƒ«ç•ªå·
 	TipWin2 *tipwin2;
 	HWND hVTWin;
 	HINSTANCE hInst;
@@ -190,7 +190,7 @@ CGeneralPropPageDlg::CGeneralPropPageDlg(HINSTANCE inst, HWND hVTWin, TComVar *p
 	m_psp.pszTitle = UIMsg;
 	m_psp.dwFlags |= (PSP_USETITLE | PSP_HASHELP);
 
-	// UI Language, “Ç‚İ‚İ
+	// UI Language, èª­ã¿è¾¼ã¿
 	LangInfo* infos = NULL;
 	size_t infos_size = 0;
 	wchar_t* folder;
@@ -222,7 +222,7 @@ CGeneralPropPageDlg::~CGeneralPropPageDlg()
 	data = NULL;
 }
 
-// CGeneralPropPageDlg ƒƒbƒZ[ƒW ƒnƒ“ƒhƒ‰
+// CGeneralPropPageDlg ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ ãƒãƒ³ãƒ‰ãƒ©
 
 void CGeneralPropPageDlg::OnInitDialog()
 {
@@ -285,10 +285,10 @@ void CGeneralPropPageDlg::OnInitDialog()
 	// Notify
 	SetCheck(IDC_NOTIFY_SOUND, pts->NotifySound);
 
-	// UI Language—p tipwin
+	// UI Languageç”¨ tipwin
 	data->tipwin2 = TipWin2Create(data->hInst, m_hWnd);
 
-	// UI Language, ‘I‘ğ
+	// UI Language, é¸æŠ
 	{
 		data->selected_lang = 0;
 		LangInfo* infos = data->lng_infos;
@@ -315,7 +315,7 @@ void CGeneralPropPageDlg::OnInitDialog()
 	SetDlgItemTextW(IDC_FILE_DIR, pts->FileDirW);
 
 #if 0
-	// ƒ_ƒCƒAƒƒO‚ÉƒtƒH[ƒJƒX‚ğ“–‚Ä‚é (2004.12.7 yutaka)
+	// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’å½“ã¦ã‚‹ (2004.12.7 yutaka)
 	::SetFocus(::GetDlgItem(GetSafeHwnd(), IDC_CLICKABLE_URL));
 #endif
 }
@@ -370,13 +370,13 @@ void CGeneralPropPageDlg::OnOK()
 			free(pts->UILanguageFileW);
 			pts->UILanguageFileW = _wcsdup(p->fullname);
 
-			// ƒ^ƒCƒgƒ‹‚ÌXV‚ğs‚¤B(2014.2.23 yutaka)
+			// ã‚¿ã‚¤ãƒˆãƒ«ã®æ›´æ–°ã‚’è¡Œã†ã€‚(2014.2.23 yutaka)
 			PostMessage(data->hVTWin, WM_USER_CHANGETITLE, 0, 0);
 		}
 
-		// TTXKanjiMenu ‚Í Language ‚ğŒ©‚Äƒƒjƒ…[‚ğ•\¦‚·‚é‚Ì‚ÅA•ÏX‚Ì‰Â”\«‚ª‚ ‚é
-		// OK ‰Ÿ‰º‚Éƒƒjƒ…[Ä•`‰æ‚ÌƒƒbƒZ[ƒW‚ğ”ò‚Î‚·‚æ‚¤‚É‚µ‚½B (2007.7.14 maya)
-		// Œ¾Œêƒtƒ@ƒCƒ‹‚Ì•ÏX‚Éƒƒjƒ…[‚ÌÄ•`‰æ‚ª•K—v (2012.5.5 maya)
+		// TTXKanjiMenu ã¯ Language ã‚’è¦‹ã¦ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ã®ã§ã€å¤‰æ›´ã®å¯èƒ½æ€§ãŒã‚ã‚‹
+		// OK æŠ¼ä¸‹æ™‚ã«ãƒ¡ãƒ‹ãƒ¥ãƒ¼å†æç”»ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’é£›ã°ã™ã‚ˆã†ã«ã—ãŸã€‚ (2007.7.14 maya)
+		// è¨€èªãƒ•ã‚¡ã‚¤ãƒ«ã®å¤‰æ›´æ™‚ã«ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®å†æç”»ãŒå¿…è¦ (2012.5.5 maya)
 		PostMessage(data->hVTWin, WM_USER_CHANGEMENU, 0, 0);
 	}
 
@@ -410,7 +410,7 @@ BOOL CGeneralPropPageDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 {
 	switch (wParam) {
 		case IDC_NOTIFICATION_TEST_POPUP | (BN_CLICKED << 16): {
-			// popup‚ğo‚·ƒeƒXƒg
+			// popupã‚’å‡ºã™ãƒ†ã‚¹ãƒˆ
 			NotifyIcon *ni = (NotifyIcon *)data->pcv->NotifyIcon;
 			const wchar_t *msg = L"Test button was pushed";
 			BOOL prev_sound = Notify2GetSound(ni);
@@ -421,7 +421,7 @@ BOOL CGeneralPropPageDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 			break;
 		}
 		case IDC_NOTIFICATION_TEST_TRAY | (BN_CLICKED << 16): {
-			// tray‚Éicon‚ğo‚·(©“®‚ÅÁ‚¦‚È‚¢)
+			// trayã«iconã‚’å‡ºã™(è‡ªå‹•ã§æ¶ˆãˆãªã„)
 			NotifyIcon* ni = (NotifyIcon*)data->pcv->NotifyIcon;
 			BOOL prev_sound = Notify2GetSound(ni);
 			BOOL notify_sound = (BOOL)GetCheck(IDC_NOTIFY_SOUND);
@@ -440,7 +440,7 @@ BOOL CGeneralPropPageDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 				MB_OK };
 			TTMessageBoxW(m_hWnd, &info, data->pts->UILanguageFileW);
 
-			// ’Ê’m—Ìˆæ‚ÌƒAƒCƒRƒ“‚ğÁ‚·
+			// é€šçŸ¥é ˜åŸŸã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’æ¶ˆã™
 			Notify2SetBallonDontHide(ni, FALSE);
 			Notify2Hide(ni);
 			break;
@@ -454,7 +454,7 @@ BOOL CGeneralPropPageDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 			hGetDlgItemTextW(m_hWnd, IDC_FILE_DIR, &src);
 			if (src != NULL && src[0] == 0) {
 				free(src);
-				// Windows‚ÌƒfƒtƒHƒ‹ƒg‚Ìƒ_ƒEƒ“ƒ[ƒhƒtƒHƒ‹ƒ_
+				// Windowsã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ãƒ•ã‚©ãƒ«ãƒ€
 				_SHGetKnownFolderPath(FOLDERID_Downloads, KF_FLAG_CREATE, NULL, &src);
 			}
 			else {

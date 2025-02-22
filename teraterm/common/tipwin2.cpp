@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2022- TeraTerm Project
  * All rights reserved.
  *
@@ -27,7 +27,7 @@
  */
 
 /*
- *	common contol �� TOOLTIPS_CLASS ���g�p�����c�[���`�b�v
+ *	common contol の TOOLTIPS_CLASS を使用したツールチップ
  */
 #include <windows.h>
 #include <commctrl.h>
@@ -59,7 +59,7 @@ TipWin2 *TipWin2Create(HINSTANCE hInstance, HWND hDlg)
 	if (hTip == NULL) {
 		return NULL;
 	}
-	//SendMessageW(hTip, TTM_SETMAXTIPWIDTH, 0, INT_MAX);	// OS�ɂ���ĈႤ?
+	//SendMessageW(hTip, TTM_SETMAXTIPWIDTH, 0, INT_MAX);	// OSによって違う?
 	SendMessageW(hTip, TTM_SETMAXTIPWIDTH, 0, 200);
 
 	TipWin2 *tWin = (TipWin2 *)calloc(1, sizeof(TipWin2));
@@ -84,30 +84,30 @@ void TipWin2Destroy(TipWin2 *tWin)
 }
 
 /**
- * @brief	�c�[���`�b�v��o�^����
+ * @brief	ツールチップを登録する
  * @param	tWin
- * @param	id �_�C�A���O�̃R���g���[��ID
- * @param	text �c�[���`�b�v
- *			NULL�̂Ƃ��o�^�폜
+ * @param	id ダイアログのコントロールID
+ * @param	text ツールチップ
+ *			NULLのとき登録削除
  */
 void TipWin2SetTextW(TipWin2 *tWin, int id, const wchar_t *text)
 {
 	TOOLINFOW toolInfo = {};
 	toolInfo.cbSize = sizeof(toolInfo);
 	toolInfo.hwnd = tWin->hDlg;
-	toolInfo.uFlags = TTF_IDISHWND | TTF_SUBCLASS;	// TTF_IDISHWND �������rect�͎Q�Ƃ���Ȃ�
+	toolInfo.uFlags = TTF_IDISHWND | TTF_SUBCLASS;	// TTF_IDISHWND があればrectは参照されない
 	toolInfo.uId = (UINT_PTR)GetDlgItem(tWin->hDlg, id);
-	toolInfo.lpszText = (LPWSTR)text;	// text �� SendMessage() ���ɑ��݂���Ηǂ�
+	toolInfo.lpszText = (LPWSTR)text;	// text は SendMessage() 時に存在すれば良い
 	SendMessageW(tWin->hTip, TTM_ADDTOOLW, 0, (LPARAM)&toolInfo);
 }
 
 /**
- * @brief �c�[���`�b�v���폜����
+ * @brief ツールチップを削除する
  * @param tWin
- * @param id �_�C�A���O�̃R���g���[��ID
+ * @param id ダイアログのコントロールID
  *
- *	�폜�ł��Ȃ����Ƃ�����?
- *	TipWin2SetTextW() �� text = NULL ���g�p�����ق����悳����
+ *	削除できないことがある?
+ *	TipWin2SetTextW() の text = NULL を使用したほうがよさそう
  */
 void TipWin2Delete(TipWin2 *tWin, int id)
 {
@@ -120,10 +120,10 @@ void TipWin2Delete(TipWin2 *tWin, int id)
 }
 
 /**
- * @brief �c�[���`�b�v��L��/����������
+ * @brief ツールチップを有効/無効化する
  * @param tWin
  *
- *	����̃R���g���[���ɐݒ肷�邱�Ƃ͂ł��Ȃ�
+ *	特定のコントロールに設定することはできない
  */
 void TipWin2Activate(TipWin2 *tWin, BOOL active)
 {

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) Robert O'Callahan
  * (C) 2008- TeraTerm Project

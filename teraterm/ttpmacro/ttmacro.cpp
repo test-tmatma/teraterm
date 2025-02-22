@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2006- TeraTerm Project
  * All rights reserved.
@@ -85,7 +85,7 @@ static void init()
 	DLLInit();
 	WinCompatInit();
 
-	// DPI Aware (‚DPI‘Î‰)
+	// DPI Aware (é«˜DPIå¯¾å¿œ)
 	DPIAware = DPI_AWARENESS_CONTEXT_UNAWARE;
 	if (pIsValidDpiAwarenessContext != NULL && pSetThreadDpiAwarenessContext != NULL) {
 		wchar_t Temp[4];
@@ -98,7 +98,7 @@ static void init()
 		}
 	}
 
-	// UILanguageFile‚Ì "Tera Term" ƒZƒNƒVƒ‡ƒ“ "DLG_SYSTEM_FONT" ‚ÌƒtƒHƒ“ƒg‚Éİ’è‚·‚é
+	// UILanguageFileã® "Tera Term" ã‚»ã‚¯ã‚·ãƒ§ãƒ³ "DLG_SYSTEM_FONT" ã®ãƒ•ã‚©ãƒ³ãƒˆã«è¨­å®šã™ã‚‹
 	LOGFONTW logfont;
 	GetI18nLogfontW(L"Tera Term", L"DlgFont", &logfont, 0, SetupFNameW);
 	SetDialogFont(logfont.lfFaceName, logfont.lfHeight, logfont.lfCharSet,
@@ -153,23 +153,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreInst,
 	while (GetMessage(&msg, NULL, 0, 0)) {
 
 		if (IsDialogMessage(hWnd, &msg) != 0) {
-			/* ˆ—‚³‚ê‚½*/
+			/* å‡¦ç†ã•ã‚ŒãŸ*/
 		} else {
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
 
 		while (!PeekMessage(&msg, NULL, NULL, NULL, PM_NOREMOVE)) {
-			// ƒƒbƒZ[ƒW‚ª‚È‚¢
+			// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒãªã„
 			if (!OnIdle(lCount)) {
-				// idle•s—v
-				if (SleepTick < 500) {	// Å‘å 501ms–¢–
+				// idleä¸è¦
+				if (SleepTick < 500) {	// æœ€å¤§ 501msæœªæº€
 					SleepTick += 2;
 				}
 				lCount = 0;
 				Sleep(SleepTick);
 			} else {
-				// —vidle
+				// è¦idle
 				SleepTick = 0;
 				lCount++;
 			}

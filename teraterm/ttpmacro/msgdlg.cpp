@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2006- TeraTerm Project
  * All rights reserved.
@@ -66,14 +66,14 @@ BOOL CMsgDlg::OnInitDialog()
 	RECT R;
 	HWND HOk;
 
-	// IDOK ‚ÌƒfƒtƒHƒ‹ƒg "OK", •\¦
-	// IDCANCEL ‚ÌƒfƒtƒHƒ‹ƒg "No", ”ñ•\¦
+	// IDOK ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ "OK", è¡¨ç¤º
+	// IDCANCEL ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ "No", éè¡¨ç¤º
 	if (YesNoFlag) {
 		static const DlgTextInfo TextInfosYesNo[] = {
 			{ IDOK, "BTN_YES" },
 			{ IDCANCEL, "BTN_NO" },
 		};
-		SetDlgItemTextA(IDOK, "Yes");	// lng ƒtƒ@ƒCƒ‹‚È‚µ‘Îô
+		SetDlgItemTextA(IDOK, "Yes");	// lng ãƒ•ã‚¡ã‚¤ãƒ«ãªã—å¯¾ç­–
 		SetDlgTextsW(m_hWnd, TextInfosYesNo, _countof(TextInfosYesNo), UILanguageFileW);
 	} else {
 		static const DlgTextInfo TextInfosOk[] = {
@@ -118,14 +118,14 @@ LRESULT CMsgDlg::OnExitSizeMove(WPARAM wParam, LPARAM lParam)
 	current_WH = R.bottom - R.top;
 
 	if (current_WW == WW && current_WH == WH) {
-		// ƒTƒCƒY‚ª•Ï‚í‚Á‚Ä‚¢‚È‚¯‚ê‚Î‰½‚à‚µ‚È‚¢
+		// ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ã¦ã„ãªã‘ã‚Œã°ä½•ã‚‚ã—ãªã„
 		PosX = R.left;
 		PosY = R.top;
 	}
 	else {
 		int new_WW;
 
-		// ‚‚³‚ª•ÏX‚³‚ê‚½‚©AÅ‰‚æ‚è•‚ª‹·‚­‚È‚Á‚½ê‡‚ÍŒ³‚É–ß‚·
+		// é«˜ã•ãŒå¤‰æ›´ã•ã‚ŒãŸã‹ã€æœ€åˆã‚ˆã‚Šå¹…ãŒç‹­ããªã£ãŸå ´åˆã¯å…ƒã«æˆ»ã™
 		if (current_WW < init_WW) {
 			new_WW = init_WW;
 			if (PosX != R.left) {
@@ -168,22 +168,22 @@ void CMsgDlg::Relocation(BOOL is_init, int new_WW, int new_WH)
 	CW = R.right-R.left;
 	CH = R.bottom-R.top;
 
-	// ‰‰ñ‚Ì‚İ
+	// åˆå›ã®ã¿
 	if (is_init) {
-		// ƒeƒLƒXƒgƒRƒ“ƒgƒ[ƒ‹ƒTƒCƒY‚ğ•â³
+		// ãƒ†ã‚­ã‚¹ãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚µã‚¤ã‚ºã‚’è£œæ­£
 		if (TW < BW) {
 			TW = BW * 2;
 		}
 		if (YesNoFlag && (TW < 7*BW/2)) {
 			TW = 7*BW/2;
 		}
-		// ƒEƒCƒ“ƒhƒEƒTƒCƒY‚ÌŒvZ
+		// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã®è¨ˆç®—
 		GetWindowRect(&R);
 		WW = TW + (R.right - R.left - CW);
 		WH = TH + (R.bottom - R.top - CH) + BH + BH*3/2;
 		init_WW = WW;
 		init_WH = WH;
-		// ÀÛ‚ÌƒTƒCƒY‚ğæ“¾
+		// å®Ÿéš›ã®ã‚µã‚¤ã‚ºã‚’å–å¾—
 		::SetWindowPos(m_hWnd, HWND_TOP, 0, 0, WW, WH, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
 		GetClientRect(&R);
 		TW = R.right - R.left;
@@ -223,15 +223,15 @@ void CMsgDlg::Relocation(BOOL is_init, int new_WW, int new_WH)
 BOOL CMsgDlg::OnCancel()
 {
 	if (!YesNoFlag) {
-		// ok(yes)‚¾‚¯‚Ì‚Æ‚«‚ÍAcancelˆ—‚Í‰½‚à‚µ‚È‚¢
+		// ok(yes)ã ã‘ã®ã¨ãã¯ã€cancelå‡¦ç†ã¯ä½•ã‚‚ã—ãªã„
 		return TRUE;
 	} else {
-		// yes/no‚Ì‚Æ‚«‚ÍAƒfƒtƒHƒ‹ƒgˆ—(I—¹)
+		// yes/noã®ã¨ãã¯ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‡¦ç†(çµ‚äº†)
 		return TTCDialog::OnCancel();
 	}
 }
 
-// ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚ğƒLƒƒƒ“ƒZƒ‹‚·‚é(closeƒ{ƒ^ƒ“‚ğ‰Ÿ‚·)‚ÆAƒ}ƒNƒ‚ÌI—¹‚Æ‚·‚éB
+// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹(closeãƒœã‚¿ãƒ³ã‚’æŠ¼ã™)ã¨ã€ãƒã‚¯ãƒ­ã®çµ‚äº†ã¨ã™ã‚‹ã€‚
 // (2008.8.5 yutaka)
 BOOL CMsgDlg::OnClose()
 {

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2024- TeraTerm Project
  * All rights reserved.
  *
@@ -70,7 +70,7 @@ static void FreeSt(TTText *h)
 	h->url = NULL;
 }
 
-// static text‚ÉŠ„‚è“–‚Ä‚éƒvƒƒV[ƒWƒƒ
+// static textã«å‰²ã‚Šå½“ã¦ã‚‹ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£
 static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 {
 	url_subclass_t *parent = (url_subclass_t *)GetWindowLongPtrW( hWnd, GWLP_USERDATA );
@@ -82,7 +82,7 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 #if 0
 	case WM_SETCURSOR:
 		{
-			// ƒJ[ƒ\ƒ‹Œ`ó•ÏX
+			// ã‚«ãƒ¼ã‚½ãƒ«å½¢çŠ¶å¤‰æ›´
 			HCURSOR hc;
 
 			hc = (HCURSOR)LoadImage(NULL,
@@ -98,7 +98,7 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 		}
 #endif
 
-	// ƒVƒ“ƒOƒ‹ƒNƒŠƒbƒN‚Åƒuƒ‰ƒEƒU‚ª‹N“®‚·‚é‚æ‚¤‚É•ÏX‚·‚éB(2015.11.16 yutaka)
+	// ã‚·ãƒ³ã‚°ãƒ«ã‚¯ãƒªãƒƒã‚¯ã§ãƒ–ãƒ©ã‚¦ã‚¶ãŒèµ·å‹•ã™ã‚‹ã‚ˆã†ã«å¤‰æ›´ã™ã‚‹ã€‚(2015.11.16 yutaka)
 	//case WM_LBUTTONDBLCLK:
 	case WM_LBUTTONDOWN: {
 		switch(parent->type) {
@@ -142,7 +142,7 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 		break;
 
 	case WM_TIMER:
-		// URL‚Ìã‚Éƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ª‚ ‚é‚È‚çAƒVƒXƒeƒ€ƒJ[ƒ\ƒ‹‚ğ•ÏX‚·‚éB
+		// URLã®ä¸Šã«ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚ã‚‹ãªã‚‰ã€ã‚·ã‚¹ãƒ†ãƒ ã‚«ãƒ¼ã‚½ãƒ«ã‚’å¤‰æ›´ã™ã‚‹ã€‚
 		if (parent->mouseover) {
 #if 1
 			HCURSOR hc;
@@ -152,17 +152,17 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 									 IMAGE_CURSOR, 0, 0,
 									 LR_DEFAULTSIZE | LR_SHARED);
 
-			SetSystemCursor(CopyCursor(hc), 32512 /* OCR_NORMAL */);    // –îˆó
-			SetSystemCursor(CopyCursor(hc), 32513 /* OCR_IBEAM */);     // Iƒr[ƒ€
+			SetSystemCursor(CopyCursor(hc), 32512 /* OCR_NORMAL */);    // çŸ¢å°
+			SetSystemCursor(CopyCursor(hc), 32513 /* OCR_IBEAM */);     // Iãƒ“ãƒ¼ãƒ 
 #endif
 		} else {
 			//ReleaseCapture();
-			// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğŒ³‚É–ß‚·B
+			// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’å…ƒã«æˆ»ã™ã€‚
 			SystemParametersInfo(SPI_SETCURSORS, 0, NULL, 0);
 
 		}
 
-		// ƒJ[ƒ\ƒ‹‚ªƒEƒBƒ“ƒhƒEŠO‚É‚ ‚éê‡‚É‚à WM_MOUSEMOVE ‚ğ‘—‚é
+		// ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å¤–ã«ã‚ã‚‹å ´åˆã«ã‚‚ WM_MOUSEMOVE ã‚’é€ã‚‹
 		GetCursorPos( &pt );
 		ScreenToClient( hWnd, &pt );
 		GetClientRect( hWnd, &rc );
@@ -173,7 +173,7 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 
 	case WM_PAINT:
 		{
-		// ƒEƒBƒ“ƒhƒE‚Ì•`‰æ
+		// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æç”»
 		PAINTSTRUCT ps;
 		HFONT hFont;
 		HFONT hOldFont;
@@ -181,19 +181,19 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 
 		hdc = BeginPaint( hWnd, &ps );
 
-		// Œ»İ‚ÌƒNƒ‰ƒCƒAƒ“ƒg‹éŒ`AƒeƒLƒXƒgAƒtƒHƒ“ƒg‚ğæ“¾‚·‚é
+		// ç¾åœ¨ã®ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆçŸ©å½¢ã€ãƒ†ã‚­ã‚¹ãƒˆã€ãƒ•ã‚©ãƒ³ãƒˆã‚’å–å¾—ã™ã‚‹
 		GetClientRect( hWnd, &rc );
 		GetWindowText( hWnd, szText, 512 );
 		hFont = (HFONT)SendMessage( hWnd, WM_GETFONT, (WPARAM)0, (LPARAM)0 );
 
-		// ƒeƒLƒXƒg•`‰æ
+		// ãƒ†ã‚­ã‚¹ãƒˆæç”»
 		SetBkMode( hdc, TRANSPARENT );
 		SetTextColor( hdc, parent->mouseover ? RGB( 0x84, 0, 0 ): RGB( 0, 0, 0xff ) );
 		hOldFont = (HFONT)SelectObject( hdc, (HGDIOBJ)hFont );
 		TextOut( hdc, 2, 0, szText, lstrlen( szText ) );
 		SelectObject( hdc, (HGDIOBJ)hOldFont );
 
-		// ƒtƒH[ƒJƒX˜g•`‰æ
+		// ãƒ•ã‚©ãƒ¼ã‚«ã‚¹æ æç”»
 		if( GetFocus() == hWnd )
 			DrawFocusRect( hdc, &rc );
 
@@ -205,13 +205,13 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 		hdc = (HDC)wParam;
 		GetClientRect( hWnd, &rc );
 
-		// ”wŒi•`‰æ
+		// èƒŒæ™¯æç”»
 		if( parent->mouseover ){
-			// ƒnƒCƒ‰ƒCƒg”wŒi•`‰æ
+			// ãƒã‚¤ãƒ©ã‚¤ãƒˆæ™‚èƒŒæ™¯æç”»
 			SetBkColor( hdc, RGB( 0xff, 0xff, 0 ) );
 			ExtTextOut( hdc, 0, 0, ETO_OPAQUE, &rc, NULL, 0, NULL );
 		}else{
-			// e‚ÉWM_CTLCOLORSTATIC‚ğ‘—‚Á‚Ä”wŒiƒuƒ‰ƒV‚ğæ“¾‚µA”wŒi•`‰æ‚·‚é
+			// è¦ªã«WM_CTLCOLORSTATICã‚’é€ã£ã¦èƒŒæ™¯ãƒ–ãƒ©ã‚·ã‚’å–å¾—ã—ã€èƒŒæ™¯æç”»ã™ã‚‹
 			HBRUSH hbr;
 			HBRUSH hbrOld;
 
@@ -223,13 +223,13 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 		return (LRESULT)1;
 
 	case WM_DESTROY:
-		// Œãn––
+		// å¾Œå§‹æœ«
 		SetWindowLongPtrW( hWnd, GWLP_WNDPROC, (LONG_PTR)parent->proc );
 		if( parent->font != NULL ) {
 			DeleteObject( parent->font );
 		}
 
-		// ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğŒ³‚É–ß‚·B
+		// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’å…ƒã«æˆ»ã™ã€‚
 		SystemParametersInfo(SPI_SETCURSORS, 0, NULL, 0);
 
 		FreeSt(parent);
@@ -241,28 +241,28 @@ static LRESULT CALLBACK UrlWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 	return CallWindowProcW( parent->proc, hWnd, msg, wParam, lParam );
 }
 
-// static text‚ÉƒvƒƒV[ƒWƒƒ‚ğİ’è‚µAƒTƒuƒNƒ‰ƒX‰»‚·‚éB
+// static textã«ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã‚’è¨­å®šã—ã€ã‚µãƒ–ã‚¯ãƒ©ã‚¹åŒ–ã™ã‚‹ã€‚
 static void do_subclass_window(HWND hWnd, url_subclass_t *parent)
 {
 	HFONT hFont;
 	LOGFONT lf;
 	LONG_PTR style;
 
-	// ƒXƒ^ƒCƒ‹‚ğİ’è
+	// ã‚¹ã‚¿ã‚¤ãƒ«ã‚’è¨­å®š
 	style = GetWindowLongPtrW(hWnd, GWL_STYLE);
 	style = style | (SS_NOTIFY | WS_TABSTOP);
 	SetWindowLongPtrW(hWnd, GWL_STYLE, style);
 
-	// e‚ÌƒvƒƒV[ƒWƒƒ‚ğƒTƒuƒNƒ‰ƒX‚©‚çQÆ‚Å‚«‚é‚æ‚¤‚ÉAƒ|ƒCƒ“ƒ^‚ğ“o˜^‚µ‚Ä‚¨‚­B
+	// è¦ªã®ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã‚’ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã‹ã‚‰å‚ç…§ã§ãã‚‹ã‚ˆã†ã«ã€ãƒã‚¤ãƒ³ã‚¿ã‚’ç™»éŒ²ã—ã¦ãŠãã€‚
 	SetWindowLongPtrW( hWnd, GWLP_USERDATA, (LONG_PTR)parent );
-	// ƒTƒuƒNƒ‰ƒX‚ÌƒvƒƒV[ƒWƒƒ‚ğ“o˜^‚·‚éB
+	// ã‚µãƒ–ã‚¯ãƒ©ã‚¹ã®ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã‚’ç™»éŒ²ã™ã‚‹ã€‚
 	parent->proc = (WNDPROC)SetWindowLongPtrW( hWnd, GWLP_WNDPROC, (LONG_PTR)UrlWndProc);
 
-	// ‰ºü‚ğ•t‚¯‚é
+	// ä¸‹ç·šã‚’ä»˜ã‘ã‚‹
 	hFont = (HFONT)SendMessage( hWnd, WM_GETFONT, (WPARAM)0, (LPARAM)0 );
 	GetObject( hFont, sizeof(lf), &lf );
 	lf.lfUnderline = TRUE;
-	parent->font = hFont = CreateFontIndirect( &lf ); // •s—v‚É‚È‚Á‚½‚çíœ‚·‚é‚±‚Æ
+	parent->font = hFont = CreateFontIndirect( &lf ); // ä¸è¦ã«ãªã£ãŸã‚‰å‰Šé™¤ã™ã‚‹ã“ã¨
 	if (hFont != NULL) {
 		SendMessage( hWnd, WM_SETFONT, (WPARAM)hFont, (LPARAM)FALSE );
 	}
@@ -271,7 +271,7 @@ static void do_subclass_window(HWND hWnd, url_subclass_t *parent)
 	parent->timer_done = 0;
 }
 
-// static text ‚ÌƒTƒCƒY‚ğ•ÏX
+// static text ã®ã‚µã‚¤ã‚ºã‚’å¤‰æ›´
 static void FitControlSize(HWND Dlg, UINT id)
 {
 	HDC hdc;
@@ -290,7 +290,7 @@ static void FitControlSize(HWND Dlg, UINT id)
 	text_len = wcslen(text);
 	dwExt = GetTabbedTextExtentW(hdc, text, (int)text_len, 0, NULL);
 	free(text);
-	w = LOWORD(dwExt) + 5; // •‚ªáŠ±‘«‚è‚È‚¢‚Ì‚Å•â³
+	w = LOWORD(dwExt) + 5; // å¹…ãŒè‹¥å¹²è¶³ã‚Šãªã„ã®ã§è£œæ­£
 	h = HIWORD(dwExt);
 	GetWindowRect(hwnd, &r);
 	point.x = r.left;

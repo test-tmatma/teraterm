@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2021- TeraTerm Project
  * All rights reserved.
  *
@@ -28,6 +28,6 @@
 
 #include <windows.h>
 
-// ‚±‚Ìƒtƒ@ƒCƒ‹(*.obj)‚ÉÀ‘Ì‚ğ’u‚­
+// ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«(*.obj)ã«å®Ÿä½“ã‚’ç½®ã
 #define INITGUID
 #include "ttknownfolders.h"

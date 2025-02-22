@@ -1,4 +1,4 @@
-/*
+Ôªø/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2006- TeraTerm Project
  * All rights reserved.
@@ -55,7 +55,7 @@ typedef struct {
 	BOOL EnqFlag;
 	BYTE CheckSum;
 	TProtoLog *log;
-	const char *FullName;	// Windowsè„ÇÃÉtÉ@ÉCÉãñº UTF-8
+	const char *FullName;	// Windows‰∏ä„ÅÆ„Éï„Ç°„Ç§„É´Âêç UTF-8
 	WORD LogState;
 
 	BOOL FileOpen;

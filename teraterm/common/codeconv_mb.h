@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2024- TeraTerm Project
  * All rights reserved.
  *
@@ -26,7 +26,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* Multi Byte, Double Byte, Single Byte ŠÖ˜A‚Ì•¶šƒR[ƒh•ÏŠ· */
+/* Multi Byte, Double Byte, Single Byte é–¢é€£ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰å¤‰æ› */
 
 #pragma once
 

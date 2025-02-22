@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2021- TeraTerm Project
  * All rights reserved.
  *
@@ -135,8 +135,8 @@ static void NewLine(TProtoLog *pv)
 }
 
 /*
- * ŠÂ‹«‚É‚æ‚Á‚ÄƒRƒ“ƒgƒ[ƒ‹•¶š‚à0ˆÈŠO‚ğ•Ô‚·‚Ì‚Åisprint()‚ğg—p‚µ‚È‚¢
- *		VS2022 ‚Í 0x09 ‚à 0 ˆÈŠO‚ğ•Ô‚·
+ * ç’°å¢ƒã«ã‚ˆã£ã¦ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«æ–‡å­—ã‚‚0ä»¥å¤–ã‚’è¿”ã™ã®ã§isprint()ã‚’ä½¿ç”¨ã—ãªã„
+ *		VS2022 ã¯ 0x09 ã‚‚ 0 ä»¥å¤–ã‚’è¿”ã™
  */
 static int ttisprint(int c)
 {
@@ -155,7 +155,7 @@ static void DumpFlush(TProtoLog *pv)
 	for (i = 0 ; i < rest ; i++)
 		pv->WriteRaw(pv,"   ", 3);
 
-	// ASCII•\¦‚ğ’Ç‰Á (2008.6.3 yutaka)
+	// ASCIIè¡¨ç¤ºã‚’è¿½åŠ  (2008.6.3 yutaka)
 	pv->WriteRaw(pv,"    ", 4);
 	for (i = 0 ; i < pdata->LogCount ; i++) {
 		char ch[5];

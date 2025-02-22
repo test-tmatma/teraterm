@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2024- TeraTerm Project
  * All rights reserved.
@@ -49,7 +49,7 @@
 
 #include "term_pp.h"
 
-// ƒeƒ“ƒvƒŒ[ƒg‚Ì‘‚«Š·‚¦‚ğs‚¤
+// ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®æ›¸ãæ›ãˆã‚’è¡Œã†
 #define REWRITE_TEMPLATE
 
 static const char *NLListRcv[] = {"CR", "CR+LF", "LF", "AUTO", NULL};
@@ -170,7 +170,7 @@ static INT_PTR CALLBACK TermDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARAM
 				else if (width > 0) {
 					ts->TerminalWidth = width;
 				}
-				else { // 0 ˆÈ‰º‚Ìê‡‚Í•ÏX‚µ‚È‚¢
+				else { // 0 ä»¥ä¸‹ã®å ´åˆã¯å¤‰æ›´ã—ãªã„
 					;
 				}
 
@@ -181,7 +181,7 @@ static INT_PTR CALLBACK TermDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARAM
 				else if (height > 0) {
 					ts->TerminalHeight = height;
 				}
-				else { // 0 ˆÈ‰º‚Ìê‡‚Í•ÏX‚µ‚È‚¢
+				else { // 0 ä»¥ä¸‹ã®å ´åˆã¯å¤‰æ›´ã—ãªã„
 					;
 				}
 

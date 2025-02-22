@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2024- TeraTerm Project
  * All rights reserved.
  *
@@ -50,7 +50,7 @@
 
 #include "win_pp.h"
 
-// ƒeƒ“ƒvƒŒ[ƒg‚Ì‘‚«Š·‚¦‚ðs‚¤
+// ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®æ›¸ãæ›ãˆã‚’è¡Œã†
 #define REWRITE_TEMPLATE
 
 typedef struct {
@@ -155,7 +155,7 @@ static INT_PTR CALLBACK WinDlg(HWND Dialog, UINT Message, WPARAM wParam, LPARAM 
 
 			SetDlgTextsW(Dialog, TextInfos, _countof(TextInfos), ts->UILanguageFileW);
 			{
-				// VTWin‚ÆTEKWin‚Åƒ‰ƒxƒ‹‚ªˆÙ‚È‚Á‚Ä‚¢‚é
+				// VTWinã¨TEKWinã§ãƒ©ãƒ™ãƒ«ãŒç•°ãªã£ã¦ã„ã‚‹
 				static const DlgTextInfo TextInfosVT[] = {
 					{ IDC_WINCOLOREMU, "DLG_WIN_PCBOLD16" },
 				};

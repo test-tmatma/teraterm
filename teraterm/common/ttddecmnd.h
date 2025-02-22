@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2017- TeraTerm Project
  * All rights reserved.
  *
@@ -90,7 +90,7 @@
 #define CmdSetFlowCtrl      'Z'
 #define CmdSendUTF8String   'a'
 #define CmdSendBinary       'b'
-#define CmdSendCompatString 'c'	// ]—ˆ‚Ì•¶š‘—M‚ÆŒİŠ·, String‚©Binary‚©”»’è•K—v
+#define CmdSendCompatString 'c'	// å¾“æ¥ã®æ–‡å­—é€ä¿¡ã¨äº’æ›, Stringã‹Binaryã‹åˆ¤å®šå¿…è¦
 #define CmdGetTTPos         'd'
 
 #define LogOptBinary        1

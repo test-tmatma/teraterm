@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2020- TeraTerm Project
  * All rights reserved.
  *
@@ -46,7 +46,7 @@
 
 #include "font_pp.h"
 
-// ƒeƒ“ƒvƒŒ[ƒg‚Ì‘‚«Š·‚¦‚ğs‚¤
+// ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®æ›¸ãæ›ãˆã‚’è¡Œã†
 #define REWRITE_TEMPLATE
 
 struct FontPPData {
@@ -62,7 +62,7 @@ static void GetDlgLogFont(HWND hWnd, const TTTSet *ts, LOGFONTW *logfont)
 {
 	memset(logfont, 0, sizeof(*logfont));
 	if (ts->DialogFontNameW[0] == 0) {
-		// ƒtƒHƒ“ƒg‚ªİ’è‚³‚ê‚Ä‚¢‚È‚©‚Á‚½‚çOS‚ÌƒtƒHƒ“ƒg‚ğg—p‚·‚é
+		// ãƒ•ã‚©ãƒ³ãƒˆãŒè¨­å®šã•ã‚Œã¦ã„ãªã‹ã£ãŸã‚‰OSã®ãƒ•ã‚©ãƒ³ãƒˆã‚’ä½¿ç”¨ã™ã‚‹
 		GetMessageboxFontW(logfont);
 	}
 	else {
@@ -105,7 +105,7 @@ static BOOL ChooseDlgFont(HWND hWnd, FontPPData *dlg_data)
 {
 	const TTTSet *ts = dlg_data->pts;
 
-	// ƒ_ƒCƒAƒƒO•\¦
+	// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤º
 	CHOOSEFONTW cf = {};
 	cf.lStructSize = sizeof(cf);
 	cf.hwndOwner = hWnd;
@@ -160,8 +160,8 @@ static void SetFontString(HWND hWnd, int item, const LOGFONTA *logfont)
 }
 
 /**
- *	ƒtƒHƒ“ƒg‚ÌCharSet(LOGFONT.charlfCharSet)‚©‚ç
- *	•\¦‚É‘Ã“–‚ÈCodePage‚ğ“¾‚é
+ *	ãƒ•ã‚©ãƒ³ãƒˆã®CharSet(LOGFONT.charlfCharSet)ã‹ã‚‰
+ *	è¡¨ç¤ºã«å¦¥å½“ãªCodePageã‚’å¾—ã‚‹
  */
 static int GetCodePageFromFontCharSet(BYTE char_set)
 {
@@ -329,7 +329,7 @@ static INT_PTR CALLBACK Proc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
 						}
 					}
 
-					// ƒtƒHƒ“ƒg‚Ìİ’è
+					// ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
 					ChangeFont(0);
 					DispChangeWinSize(WinWidth,WinHeight);
 					ChangeCaret();
@@ -407,7 +407,7 @@ static UINT CALLBACK CallBack(HWND hwnd, UINT uMsg, struct _PROPSHEETPAGEW *ppsp
 
 HPROPSHEETPAGE FontPageCreate(HINSTANCE inst, TTTSet *pts)
 {
-	// ’ common/tt_res.h ‚Æ font_pp_res.h ‚Å’l‚ğˆê’v‚³‚¹‚é‚±‚Æ
+	// æ³¨ common/tt_res.h ã¨ font_pp_res.h ã§å€¤ã‚’ä¸€è‡´ã•ã›ã‚‹ã“ã¨
 	const int id = IDD_TABSHEET_FONT;
 
 	FontPPData *Param = (FontPPData *)calloc(1, sizeof(FontPPData));

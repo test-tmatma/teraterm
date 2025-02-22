@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2021- TeraTerm Project
  * All rights reserved.
  *
@@ -30,9 +30,9 @@
 #pragma once
 
 /*
- *	- compat_win ‚Åg—p
- *	- VS2008 ‚È‚Ç‚Åg‚¦‚éŒÃ‚¢SDK‚Åƒrƒ‹ƒh‚·‚é‚Æ‚«‚Ég—p
- *	  - FOLDERID_* ‚ªSDK“à‚É’è‹`‚³‚ê‚Ä‚¢‚È‚¢‚½‚ß
+ *	- compat_win ã§ä½¿ç”¨
+ *	- VS2008 ãªã©ã§ä½¿ãˆã‚‹å¤ã„SDKã§ãƒ“ãƒ«ãƒ‰ã™ã‚‹ã¨ãã«ä½¿ç”¨
+ *	  - FOLDERID_* ãŒSDKå†…ã«å®šç¾©ã•ã‚Œã¦ã„ãªã„ãŸã‚
  */
 #ifdef INITGUID
 #ifdef __cplusplus

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2024- TeraTerm Project
  * All rights reserved.
  *
@@ -35,20 +35,20 @@ extern "C" {
 #endif
 
 typedef struct {
-	const wchar_t *UILanguageFileW;		// lngƒtƒ@ƒCƒ‹
+	const wchar_t *UILanguageFileW;		// lngãƒ•ã‚¡ã‚¤ãƒ«
 	const wchar_t *SetupFNameW;			// TERATERM.INI
-	const wchar_t *title;				// ƒ^ƒCƒgƒ‹
-	HWND vtwin;							// ƒwƒ‹ƒv‚ğ•\¦‚·‚é‚½‚ß
+	const wchar_t *title;				// ã‚¿ã‚¤ãƒˆãƒ«
+	HWND vtwin;							// ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚
 } EditHistoryDlgData;
 
 /**
- *	ƒzƒXƒgƒŠƒXƒg‚ğ•ÒW‚·‚é
+ *	ãƒ›ã‚¹ãƒˆãƒªã‚¹ãƒˆã‚’ç·¨é›†ã™ã‚‹
  *
  *	@param		hInstance
  *	@param		WndParent
  *	@param		parent_data
- *	@retval		TRUE		OK(•ÒW‚µ‚½)
- *	@retval		FALSE		Cancel‚µ‚½
+ *	@retval		TRUE		OK(ç·¨é›†ã—ãŸ)
+ *	@retval		FALSE		Cancelã—ãŸ
  */
 BOOL EditHistoryDlg(HINSTANCE hInstance, HWND WndParent, EditHistoryDlgData *parent_data);
 

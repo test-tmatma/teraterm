@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2018- TeraTerm Project
  * All rights reserved.
  *
@@ -29,8 +29,8 @@
 /* compat_win */
 
 /*
- * g—p‚µ‚Ä‚¢‚é Windows SDK, Visual Studio ‚Ì·‚ğ‚È‚­‚·‚½‚ß‚Ìƒtƒ@ƒCƒ‹
- * windows.h ‚È‚Ç‚Ìƒtƒ@ƒCƒ‹‚ğ include ‚µ‚½Œã‚É include ‚·‚é
+ * ä½¿ç”¨ã—ã¦ã„ã‚‹ Windows SDK, Visual Studio ã®å·®ã‚’ãªãã™ãŸã‚ã®ãƒ•ã‚¡ã‚¤ãƒ«
+ * windows.h ãªã©ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ include ã—ãŸå¾Œã« include ã™ã‚‹
  */
 
 #pragma once
@@ -87,8 +87,8 @@ typedef enum  {
 #endif
 
 /**
- *	NOTIFYICONDATA ‚Í define ‚ÅƒTƒCƒY‚ª•Ï‰»‚·‚é
- *	‚Ç‚ñ‚ÈŠÂ‹«‚Å‚à•Ï‰»‚µ‚È‚¢‚æ‚¤’è‹`
+ *	NOTIFYICONDATA ã¯ define ã§ã‚µã‚¤ã‚ºãŒå¤‰åŒ–ã™ã‚‹
+ *	ã©ã‚“ãªç’°å¢ƒã§ã‚‚å¤‰åŒ–ã—ãªã„ã‚ˆã†å®šç¾©
  *
  * Shlwapi.dll 5.0
  * 	Win98(ME?)+,2000+

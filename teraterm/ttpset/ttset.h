@@ -1,4 +1,4 @@
-/*
+Ôªø/*
  * (C) 2022- TeraTerm Project
  * All rights reserved.
  *
@@ -25,7 +25,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-// ÉvÉâÉOÉCÉìÇ≈égÇÌÇÍÇÈä÷êî
+// „Éó„É©„Ç∞„Ç§„É≥„Åß‰Ωø„Çè„Çå„ÇãÈñ¢Êï∞
 
 #pragma once
 

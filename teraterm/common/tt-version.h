@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2017- TeraTerm Project
  * All rights reserved.
  *
@@ -32,8 +32,8 @@
 #define TT_VERSION_MINOR             4
 #define TT_VERSION_SUBSTR            "dev"
 //#undef TT_VERSION_SUBSTR
-// SUBSTR ‚ª•s—v‚È‚Í undef ‚·‚é
-//  g—p—á "dev", "RC", "RC2"
+// SUBSTR ãŒä¸è¦ãªæ™‚ã¯ undef ã™ã‚‹
+//  ä½¿ç”¨ä¾‹ "dev", "RC", "RC2"
 
 #define TT_TOSTR(x)					TT_TOSTR_HELPER(x)
 #define TT_TOSTR_HELPER(x)			#x
@@ -70,7 +70,7 @@
 #endif
 
 // TT_RES_PRODUCT_VERSION_STR
-//	ƒŠƒ\[ƒXƒtƒ@ƒCƒ‹(rcƒtƒ@ƒCƒ‹) ProductVersion —p
+//	ãƒªã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«(rcãƒ•ã‚¡ã‚¤ãƒ«) ProductVersion ç”¨
 #if defined(TT_VERSION_SUBSTR_HASH)
 #define TT_RES_PRODUCT_VERSION_STR \
 	TT_VERSION_STR(".") " " TT_VERSION_SUBSTR_HASH
@@ -80,7 +80,7 @@
 #endif
 
 // TT_RES_VERSION_STR
-// 	ƒŠƒ\[ƒXƒtƒ@ƒCƒ‹(rcƒtƒ@ƒCƒ‹) FileVersion —p
+// 	ãƒªã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«(rcãƒ•ã‚¡ã‚¤ãƒ«) FileVersion ç”¨
 // 	ex "5, 1, 0, 0"
 #undef TT_RES_VERSION_STR
 #define TT_RES_VERSION_STR	TT_VERSION_STR(", ") ", 0, 0"

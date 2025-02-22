@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2007- TeraTerm Project
  * All rights reserved.
@@ -80,9 +80,9 @@ BOOL CErrDlg::OnInitDialog()
 
 	SetDlgItemTextW(IDC_ERRMSG,MsgStr);
 
-	// s”Ô†‚ğæ“ª‚É‚Â‚¯‚éB
-	// ƒtƒ@ƒCƒ‹–¼‚à‚Â‚¯‚éB
-	// ƒGƒ‰[‰ÓŠ‚Éˆó‚ğ‚Â‚¯‚éB
+	// è¡Œç•ªå·ã‚’å…ˆé ­ã«ã¤ã‘ã‚‹ã€‚
+	// ãƒ•ã‚¡ã‚¤ãƒ«åã‚‚ã¤ã‘ã‚‹ã€‚
+	// ã‚¨ãƒ©ãƒ¼ç®‡æ‰€ã«å°ã‚’ã¤ã‘ã‚‹ã€‚
 	_snwprintf_s(buf, _countof(buf), _TRUNCATE, L"%ls:%d:", MacroFileName, LineNo);
 	SetDlgItemTextW(IDC_ERRLINE, buf);
 

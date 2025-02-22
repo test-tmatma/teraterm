@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2006- TeraTerm Project
  * All rights reserved.
@@ -61,7 +61,7 @@ INT_PTR CInpDlg::DoModal(HINSTANCE hInst, HWND hWndParent)
 	return TTCDialog::DoModal(hInst, hWndParent, CInpDlg::IDD);
 }
 
-// msgdlg ‚Ì‚æ‚¤‚ÉAƒƒbƒZ[ƒW‚ª’·‚¢ê‡‚É‚Íƒ_ƒCƒAƒƒO‚ğŠg‚°‚é‚æ‚¤‚É‚µ‚½ (2006.7.29 maya)
+// msgdlg ã®ã‚ˆã†ã«ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒé•·ã„å ´åˆã«ã¯ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’æ‹¡ã’ã‚‹ã‚ˆã†ã«ã—ãŸ (2006.7.29 maya)
 BOOL CInpDlg::OnInitDialog()
 {
 	static const DlgTextInfo TextInfos[] = {
@@ -132,14 +132,14 @@ LRESULT CInpDlg::OnExitSizeMove(WPARAM wParam, LPARAM lParam)
 	current_WH = R.bottom - R.top;
 
 	if (current_WW == WW && current_WH == WH) {
-		// ƒTƒCƒY‚ª•Ï‚í‚Á‚Ä‚¢‚È‚¯‚ê‚Î‰½‚à‚µ‚È‚¢
+		// ã‚µã‚¤ã‚ºãŒå¤‰ã‚ã£ã¦ã„ãªã‘ã‚Œã°ä½•ã‚‚ã—ãªã„
 		PosX = R.left;
 		PosY = R.top;
 	}
 	else {
 		int new_WW;
 
-		// ‚‚³‚ª•ÏX‚³‚ê‚½‚©AÅ‰‚æ‚è•‚ª‹·‚­‚È‚Á‚½ê‡‚ÍŒ³‚É–ß‚·
+		// é«˜ã•ãŒå¤‰æ›´ã•ã‚ŒãŸã‹ã€æœ€åˆã‚ˆã‚Šå¹…ãŒç‹­ããªã£ãŸå ´åˆã¯å…ƒã«æˆ»ã™
 		if (current_WW < init_WW) {
 			new_WW = init_WW;
 			if (PosX != R.left) {
@@ -187,16 +187,16 @@ void CInpDlg::Relocation(BOOL is_init, int new_WW, int new_WH)
 	CONTROL_GAP_W = c_WW - CW;
 	CONTROL_GAP_H = c_WH - CH;
 
-	// ‰‰ñ‚Ì‚İ
+	// åˆå›ã®ã¿
 	if (is_init) {
-		// ƒeƒLƒXƒgƒRƒ“ƒgƒ[ƒ‹ƒTƒCƒY‚ğ•â³
+		// ãƒ†ã‚­ã‚¹ãƒˆã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚µã‚¤ã‚ºã‚’è£œæ­£
 		if (TW < (int)(224 * dpi / 96.f)) {
 			TW = (int)(224 * dpi / 96.f);
 		}
 		if (EW < s.cx) {
 			EW = s.cx;
 		}
-		// ƒEƒCƒ“ƒhƒEƒTƒCƒY‚ÌŒvZ
+		// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã®è¨ˆç®—
 		TW += (int)(26 * dpi / 96.f);
 		WW = TW + CONTROL_GAP_W;
 		WH = TH + CONTROL_GAP_H + EH + BH + BH*2;

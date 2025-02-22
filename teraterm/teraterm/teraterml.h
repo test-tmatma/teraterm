@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * (C) 2019- TeraTerm Project
  * All rights reserved.
  *
@@ -30,11 +30,11 @@
 /*	teraterm/ folder only  */
 
 /**
- *	‰æ‘œ“Ç‚İ‚İ‚É GDI+ ƒ‰ƒCƒuƒ‰ƒŠ‚ğg—p‚·‚é
- *		Windows XP ‚©‚ç—˜—p‰Â”\
+ *	ç”»åƒèª­ã¿è¾¼ã¿ã« GDI+ ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’ä½¿ç”¨ã™ã‚‹
+ *		Windows XP ã‹ã‚‰åˆ©ç”¨å¯èƒ½
  */
 #if !defined(ENABLE_GDIPLUS)
-#define ENABLE_GDIPLUS	1	// 0/1=—LŒø/–³Œø
+#define ENABLE_GDIPLUS	1	// 0/1=æœ‰åŠ¹/ç„¡åŠ¹
 #endif
 
 void AddModelessHandle(HWND hWnd);

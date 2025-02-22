@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2009- TeraTerm Project
  * All rights reserved.
  *
@@ -26,7 +26,7 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /*
- * "wait4all"ƒ}ƒNƒƒRƒ}ƒ“ƒh—pƒ‹[ƒ`ƒ“
+ * "wait4all"ãƒã‚¯ãƒ­ã‚³ãƒãƒ³ãƒ‰ç”¨ãƒ«ãƒ¼ãƒãƒ³
  *
  */
 #include <stdio.h>
@@ -39,10 +39,10 @@
 //  0: enable
 static int function_disable = 1;  
 
-// ‹¤—Lƒƒ‚ƒŠƒtƒH[ƒ}ƒbƒgŠg’£‚ÍAˆÈ‰º‚Ì–¼Ì‚ğ•ÏX‚·‚é‚±‚ÆB
+// å…±æœ‰ãƒ¡ãƒ¢ãƒªãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆæ‹¡å¼µæ™‚ã¯ã€ä»¥ä¸‹ã®åç§°ã‚’å¤‰æ›´ã™ã‚‹ã“ã¨ã€‚
 #define TTM_FILEMAPNAME "ttm_memfilemap_1"
 
-// ‹¤—Lƒƒ‚ƒŠ‚ÌƒtƒH[ƒ}ƒbƒg
+// å…±æœ‰ãƒ¡ãƒ¢ãƒªã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 typedef struct {
 	HWND WinList[MAXNWIN];
 	int NWin;
@@ -60,22 +60,22 @@ static TMacroShmem *pm = NULL;
 static int mindex = -1;
 static BOOL QuoteFlag;
 
-// ”r‘¼§Œä
+// æ’ä»–åˆ¶å¾¡
 #define MUTEX_NAME "Mutex Object for macro shmem"
 static HANDLE hMutex = NULL;
 
-// ‹¤—Lƒƒ‚ƒŠƒCƒ“ƒfƒbƒNƒX
+// å…±æœ‰ãƒ¡ãƒ¢ãƒªã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 int macro_shmem_index = -1;
 
 
-// wait4allƒRƒ}ƒ“ƒh‚ª—LŒø‚©‚Ç‚¤‚©‚ğ•Ô‚·
+// wait4allã‚³ãƒãƒ³ãƒ‰ãŒæœ‰åŠ¹ã‹ã©ã†ã‹ã‚’è¿”ã™
 int is_wait4all_enabled(void)
 {
 	return !function_disable;
 }
 
 
-// ‹¤—Lƒƒ‚ƒŠ‚Ìƒ}ƒbƒsƒ“ƒO
+// å…±æœ‰ãƒ¡ãƒ¢ãƒªã®ãƒãƒƒãƒ”ãƒ³ã‚°
 static int open_macro_shmem(void)
 {
 	HMap = CreateFileMapping(
@@ -90,7 +90,7 @@ static int open_macro_shmem(void)
 	if (pm == NULL)
 		return FALSE;
 
-	if (FirstInstance) { // ‰‰ñ‚ÉƒAƒ^ƒbƒ`‚µ‚½l‚ªAÓ”C‚ğ‚Á‚ÄƒNƒŠƒA‚µ‚Ä‚¨‚­B
+	if (FirstInstance) { // åˆå›ã«ã‚¢ã‚¿ãƒƒãƒã—ãŸäººãŒã€è²¬ä»»ã‚’æŒã£ã¦ã‚¯ãƒªã‚¢ã—ã¦ãŠãã€‚
 		memset(pm, 0, sizeof(TMacroShmem));
 	}
 
@@ -123,7 +123,7 @@ static void unlock_shmem(HANDLE hd)
 	ReleaseMutex(hd);
 }
 
-// ƒ}ƒNƒƒEƒBƒ“ƒhƒE‚ğ“o˜^‚·‚é
+// ãƒã‚¯ãƒ­ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç™»éŒ²ã™ã‚‹
 int register_macro_window(HWND hwnd)
 {
 	int i;
@@ -146,7 +146,7 @@ int register_macro_window(HWND hwnd)
 		if (pm->WinList[i] == NULL) {
 			pm->NWin++;
 			pm->WinList[i] = hwnd;
-			macro_shmem_index = mindex = i;   // ƒCƒ“ƒfƒbƒNƒX‚ğ•Û‘¶
+			macro_shmem_index = mindex = i;   // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ä¿å­˜
 			ret = TRUE;
 			break;
 		}
@@ -157,7 +157,7 @@ int register_macro_window(HWND hwnd)
 	return (ret);
 }
 
-// ƒ}ƒNƒƒEƒBƒ“ƒhƒE‚ğ“o˜^‰ğœ‚·‚é
+// ãƒã‚¯ãƒ­ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç™»éŒ²è§£é™¤ã™ã‚‹
 int unregister_macro_window(HWND hwnd)
 {
 	int i;
@@ -186,7 +186,7 @@ int unregister_macro_window(HWND hwnd)
 	return (ret);
 }
 
-// ƒAƒNƒeƒBƒu‚É‚È‚Á‚Ä‚¢‚éttpmacro‚ÌƒCƒ“ƒfƒbƒNƒX”z—ñ‚ğ•Ô‚·B
+// ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ãªã£ã¦ã„ã‚‹ttpmacroã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹é…åˆ—ã‚’è¿”ã™ã€‚
 void get_macro_active_info(int *num, int *index)
 {
 	int i;
@@ -205,7 +205,7 @@ void get_macro_active_info(int *num, int *index)
 	unlock_shmem(hd);
 }
 
-// Œ»İ‚ÌƒAƒNƒeƒBƒuttpmacro”‚ğ•Ô‚·
+// ç¾åœ¨ã®ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ttpmacroæ•°ã‚’è¿”ã™
 int get_macro_active_num(void)
 {
 	return pm->NWin;

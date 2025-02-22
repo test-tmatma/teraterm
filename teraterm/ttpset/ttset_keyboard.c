@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2004- TeraTerm Project
  * All rights reserved.
@@ -235,8 +235,8 @@ static void ReadUserkeysSection(const wchar_t *FName, PKeyMap KeyMap)
 }
 
 /**
- *	keyboard.cnf ‚ğ“Ç‚İ‚Ş
- *		KeyMap ‚Í‰Šú‰»Ï‚İ
+ *	keyboard.cnf ã‚’èª­ã¿è¾¼ã‚€
+ *		KeyMap ã¯åˆæœŸåŒ–æ¸ˆã¿
  */
 void PASCAL _ReadKeyboardCnf(const wchar_t *FName, PKeyMap KeyMap, BOOL ShowWarning)
 {
@@ -245,7 +245,7 @@ void PASCAL _ReadKeyboardCnf(const wchar_t *FName, PKeyMap KeyMap, BOOL ShowWarn
 	ReadKeyboardMap(KeyMap, FName);
 	ReadUserkeysSection(FName, KeyMap);
 
-	// d•¡ƒ`ƒFƒbƒN
+	// é‡è¤‡ãƒã‚§ãƒƒã‚¯
 	for (j = 1; j <= IdKeyMax - 1; j++)
 		if (KeyMap->Map[j] != 0xFFFF)
 			for (i = 0; i <= j - 1; i++)

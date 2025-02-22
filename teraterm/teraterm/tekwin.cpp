@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2006- TeraTerm Project
  * All rights reserved.
@@ -101,7 +101,7 @@ CTEKWindow::CTEKWindow(HINSTANCE hInstance)
 		return;
 	}
 
-	// Windows 11 ‚ÅƒEƒBƒ“ƒhƒE‚ÌŠp‚ªŠÛ‚­‚È‚ç‚È‚¢‚æ‚¤‚É‚·‚é
+	// Windows 11 ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è§’ãŒä¸¸ããªã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹
 	if (ts.WindowCornerDontround && pDwmSetWindowAttribute != NULL) {
 		DWM_WINDOW_CORNER_PREFERENCE preference = DWMWCP_DONOTROUND;
 		pDwmSetWindowAttribute(HTEKWin, DWMWA_WINDOW_CORNER_PREFERENCE, &preference, sizeof(preference));
@@ -247,9 +247,9 @@ void CTEKWindow::OnActivate(UINT nState, HWND pWndOther, BOOL bMinimized)
 }
 
 /**
- *	ƒL[ƒ{[ƒh‚©‚ç1•¶Žš“ü—Í
- *	@param	nChar	UTF-16 char(wchar_t)	IsWindowUnicode() == TRUE Žž
- *					ANSI char(char)			IsWindowUnicode() == FALSE Žž
+ *	ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã‹ã‚‰1æ–‡å­—å…¥åŠ›
+ *	@param	nChar	UTF-16 char(wchar_t)	IsWindowUnicode() == TRUE æ™‚
+ *					ANSI char(char)			IsWindowUnicode() == FALSE æ™‚
  */
 void CTEKWindow::OnChar(WPARAM nChar, UINT nRepCnt, UINT nFlags)
 {
@@ -260,10 +260,10 @@ void CTEKWindow::OnChar(WPARAM nChar, UINT nRepCnt, UINT nFlags)
 
 	wchar_t u16;
 	if (IsWindowUnicode(HTEKWin) == TRUE) {
-		// “ü—Í‚Í UTF-16
+		// å…¥åŠ›ã¯ UTF-16
 		u16 = (wchar_t)nChar;
 	} else {
-		// “ü—Í‚Í ANSI
+		// å…¥åŠ›ã¯ ANSI
 		//		ANSI(ACP) -> UTF-32 -> UTF-16
 		const char mb_str[2] = {(char)nChar, 0};
 		unsigned int u32;
@@ -792,7 +792,7 @@ LRESULT CTEKWindow::Proc(UINT msg, WPARAM wp, LPARAM lp)
 {
 	LRESULT retval = 0;
 	if (msg == MsgDlgHelp) {
-		// HELPMSGSTRING message Žž
+		// HELPMSGSTRING message æ™‚
 		//		wp = dialog handle
 		//		lp = initialization structure
 		OnDlgHelp(HelpId, 0);

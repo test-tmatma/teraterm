@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2009- TeraTerm Project
  * All rights reserved.
  *
@@ -36,7 +36,7 @@
 extern "C" {
 #endif
 
-// TODO: ˆÈ‰º‚Ì’è‹`‚Í‹¤’Êƒwƒbƒ_‚©‚çinclude‚·‚×‚«
+// TODO: ä»¥ä¸‹ã®å®šç¾©ã¯å…±é€šãƒ˜ãƒƒãƒ€ã‹ã‚‰includeã™ã¹ã
 #undef MAXNWIN
 #define MAXNWIN 256
 #undef RingBufSize

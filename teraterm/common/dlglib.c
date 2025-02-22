@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 1994-1998 T. Teranishi
  * (C) 2008- TeraTerm Project
  * All rights reserved.
@@ -132,8 +132,8 @@ void InitDlgProgress(HWND HDlg, int id_Progress, int *CurProgStat) {
 
 void SetDlgPercent(HWND HDlg, int id_Item, int id_Progress, LONG a, LONG b, int *p)
 {
-	// 20MBˆÈã‚Ìƒtƒ@ƒCƒ‹‚ğƒAƒbƒvƒ[ƒh‚µ‚æ‚¤‚Æ‚·‚é‚ÆAbuffer overflow‚Å
-	// —‚¿‚é–â‘è‚Ö‚Ì‘ÎˆB(2005.3.18 yutaka)
+	// 20MBä»¥ä¸Šã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚¢ãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰ã—ã‚ˆã†ã¨ã™ã‚‹ã¨ã€buffer overflowã§
+	// è½ã¡ã‚‹å•é¡Œã¸ã®å¯¾å‡¦ã€‚(2005.3.18 yutaka)
 	// cf. http://sourceforge.jp/tracker/index.php?func=detail&aid=5713&group_id=1412&atid=5333
 	double Num;
 	wchar_t NumStr[10];
@@ -234,13 +234,13 @@ typedef struct {
 } EditSubclassData;
 
 /**
- *	ƒTƒ|[ƒg‚·‚éƒL[
- *	C-n/C-p		ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Ì‚Æ‚«1‚Âã/‰º‚ğ‘I‘ğ
- *	C-b/C-f		ƒJ[ƒ\ƒ‹‚ğ1•¶š‘O/Œã‚ë
- *	C-a/C-e		ƒJ[ƒ\ƒ‹‚ğs“ª/s––
- *	C-d			ƒJ[ƒ\ƒ‹”z‰º‚Ì1•¶šíœ
- *	C-k			ƒJ[ƒ\ƒ‹‚©‚çs––‚Ü‚Åíœ
- *	C-u			ƒJ[ƒ\ƒ‹‚æ‚ès“ª‚Ü‚Åíœ
+ *	ã‚µãƒãƒ¼ãƒˆã™ã‚‹ã‚­ãƒ¼
+ *	C-n/C-p		ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã®ã¨ã1ã¤ä¸Š/ä¸‹ã‚’é¸æŠ
+ *	C-b/C-f		ã‚«ãƒ¼ã‚½ãƒ«ã‚’1æ–‡å­—å‰/å¾Œã‚
+ *	C-a/C-e		ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡Œé ­/è¡Œæœ«
+ *	C-d			ã‚«ãƒ¼ã‚½ãƒ«é…ä¸‹ã®1æ–‡å­—å‰Šé™¤
+ *	C-k			ã‚«ãƒ¼ã‚½ãƒ«ã‹ã‚‰è¡Œæœ«ã¾ã§å‰Šé™¤
+ *	C-u			ã‚«ãƒ¼ã‚½ãƒ«ã‚ˆã‚Šè¡Œé ­ã¾ã§å‰Šé™¤
  */
 static LRESULT CALLBACK HostnameEditProc(HWND dlg, UINT msg,
                                          WPARAM wParam, LPARAM lParam)
@@ -252,7 +252,7 @@ static LRESULT CALLBACK HostnameEditProc(HWND dlg, UINT msg,
 	DWORD len;
 
 	switch (msg) {
-		// ƒL[‚ª‰Ÿ‚³‚ê‚½‚Ì‚ğŒŸ’m‚·‚é
+		// ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã®ã‚’æ¤œçŸ¥ã™ã‚‹
 		case WM_KEYDOWN:
 			if (GetKeyState(VK_CONTROL) < 0) {
 				switch (wParam) {
@@ -345,17 +345,17 @@ static LRESULT CALLBACK HostnameEditProc(HWND dlg, UINT msg,
 						if (str != NULL) {
 							len = GetWindowTextW(dlg, str, (int)max);
 							if (select < len) {
-								if (wParam == 0x44) { // Ctrl+d ƒJ[ƒ\ƒ‹”z‰º‚Ì•¶š‚Ì‚İ‚ğíœ‚·‚é
+								if (wParam == 0x44) { // Ctrl+d ã‚«ãƒ¼ã‚½ãƒ«é…ä¸‹ã®æ–‡å­—ã®ã¿ã‚’å‰Šé™¤ã™ã‚‹
 									wmemmove(&str[select], &str[select + 1], len - select - 1);
 									str[len - 1] = '\0';
 
-								} else if (wParam == 0x4b) { // Ctrl+k ƒJ[ƒ\ƒ‹‚©‚çs––‚Ü‚Åíœ‚·‚é
+								} else if (wParam == 0x4b) { // Ctrl+k ã‚«ãƒ¼ã‚½ãƒ«ã‹ã‚‰è¡Œæœ«ã¾ã§å‰Šé™¤ã™ã‚‹
 									str[select] = '\0';
 
 								}
 							}
 
-							if (wParam == 0x55) { // Ctrl+uƒJ[ƒ\ƒ‹‚æ‚è¶‘¤‚ğ‚·‚×‚ÄÁ‚·
+							if (wParam == 0x55) { // Ctrl+uã‚«ãƒ¼ã‚½ãƒ«ã‚ˆã‚Šå·¦å´ã‚’ã™ã¹ã¦æ¶ˆã™
 								if (select >= len) {
 									str[0] = '\0';
 								} else {
@@ -377,7 +377,7 @@ static LRESULT CALLBACK HostnameEditProc(HWND dlg, UINT msg,
 			}
 			break;
 
-		// ã‚ÌƒL[‚ğ‰Ÿ‚µ‚½Œ‹‰Ê‘—‚ç‚ê‚é•¶š‚Å‰¹‚ª–Â‚é‚Ì‚ÅÌ‚Ä‚é
+		// ä¸Šã®ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸçµæœé€ã‚‰ã‚Œã‚‹æ–‡å­—ã§éŸ³ãŒé³´ã‚‹ã®ã§æ¨ã¦ã‚‹
 		case WM_CHAR:
 			switch (wParam) {
 				case 0x01:
@@ -414,10 +414,10 @@ static LRESULT CALLBACK HostnameEditProc(HWND dlg, UINT msg,
 }
 
 /**
- *	ƒGƒfƒBƒbƒgƒ{ƒbƒNƒX/ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ÌƒL[‘€ì‚ğ emacs •—‚É‚·‚é
- *		C-n/C-p ‚Ì‚½‚ß‚ÉƒTƒuƒNƒ‰ƒX‰»
- *	@praram		hDlg		ƒ_ƒCƒAƒƒO
- *	@praram		nID			emacs•—‚É‚·‚éƒGƒfƒBƒbƒgƒ{ƒbƒNƒX ‚Ü‚½‚Í ƒRƒ“ƒ{ƒ{ƒbƒNƒX
+ *	ã‚¨ãƒ‡ã‚£ãƒƒãƒˆãƒœãƒƒã‚¯ã‚¹/ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã®ã‚­ãƒ¼æ“ä½œã‚’ emacs é¢¨ã«ã™ã‚‹
+ *		C-n/C-p ã®ãŸã‚ã«ã‚µãƒ–ã‚¯ãƒ©ã‚¹åŒ–
+ *	@praram		hDlg		ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
+ *	@praram		nID			emacsé¢¨ã«ã™ã‚‹ã‚¨ãƒ‡ã‚£ãƒƒãƒˆãƒœãƒƒã‚¯ã‚¹ ã¾ãŸã¯ ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹
  */
 void SetEditboxEmacsKeybind(HWND hDlg, int nID)
 {
@@ -462,16 +462,16 @@ static int CALLBACK IsExistFontSubA(
 
 /**
  *	IsExistFont
- *	ƒtƒHƒ“ƒg‚ª‘¶İ‚µ‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN‚·‚é
+ *	ãƒ•ã‚©ãƒ³ãƒˆãŒå­˜åœ¨ã—ã¦ã„ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹
  *
- *	@param[in]	face		ƒtƒHƒ“ƒg–¼(ƒtƒ@ƒCƒ‹–¼‚Å‚Í‚È‚¢)
- *	@param[in]	charset		SHIFTJIS_CHARSET‚È‚Ç
- *	@param[in]	strict		TRUE	ƒtƒHƒ“ƒgƒŠƒ“ƒN‚ÍŒŸõ‚ÉŠÜ‚ß‚È‚¢
- *							FALSE	ƒtƒHƒ“ƒgƒŠƒ“ƒN‚àŒŸõ‚ÉŠÜ‚ß‚é
- *	@retval		FALSE		ƒtƒHƒ“ƒg‚Í‚µ‚È‚¢
- *	@retval		TRUE		ƒtƒHƒ“ƒg‚Í‘¶İ‚·‚é
+ *	@param[in]	face		ãƒ•ã‚©ãƒ³ãƒˆå(ãƒ•ã‚¡ã‚¤ãƒ«åã§ã¯ãªã„)
+ *	@param[in]	charset		SHIFTJIS_CHARSETãªã©
+ *	@param[in]	strict		TRUE	ãƒ•ã‚©ãƒ³ãƒˆãƒªãƒ³ã‚¯ã¯æ¤œç´¢ã«å«ã‚ãªã„
+ *							FALSE	ãƒ•ã‚©ãƒ³ãƒˆãƒªãƒ³ã‚¯ã‚‚æ¤œç´¢ã«å«ã‚ã‚‹
+ *	@retval		FALSE		ãƒ•ã‚©ãƒ³ãƒˆã¯ã—ãªã„
+ *	@retval		TRUE		ãƒ•ã‚©ãƒ³ãƒˆã¯å­˜åœ¨ã™ã‚‹
  *
- *	strict = FALSEA‘¶İ‚µ‚È‚¢ƒtƒHƒ“ƒg‚Å‚à•\¦‚Å‚«‚é‚È‚çTRUE‚ª•Ô‚é
+ *	strict = FALSEæ™‚ã€å­˜åœ¨ã—ãªã„ãƒ•ã‚©ãƒ³ãƒˆã§ã‚‚è¡¨ç¤ºã§ãã‚‹ãªã‚‰TRUEãŒè¿”ã‚‹
  */
 BOOL IsExistFontA(const char *face, BYTE charset, BOOL strict)
 {
@@ -480,7 +480,7 @@ BOOL IsExistFontA(const char *face, BYTE charset, BOOL strict)
 	IsExistFontInfoA info;
 	memset(&lf, 0, sizeof(lf));
 	lf.lfCharSet = !strict ? DEFAULT_CHARSET : charset;
-	// ªDEFAULT_CHARSET‚Æ‚·‚é‚ÆƒtƒHƒ“ƒgƒŠƒ“ƒN‚à—LŒø‚É‚È‚é‚æ‚¤‚¾
+	// â†‘DEFAULT_CHARSETã¨ã™ã‚‹ã¨ãƒ•ã‚©ãƒ³ãƒˆãƒªãƒ³ã‚¯ã‚‚æœ‰åŠ¹ã«ãªã‚‹ã‚ˆã†ã 
 	lf.lfPitchAndFamily = 0;
 	info.found = FALSE;
 	info.face = face;
@@ -513,26 +513,26 @@ static int CALLBACK IsExistFontSubW(
 }
 
 /**
- *	ƒtƒHƒ“ƒg‚ª‘¶İ‚µ‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN‚·‚é
+ *	ãƒ•ã‚©ãƒ³ãƒˆãŒå­˜åœ¨ã—ã¦ã„ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹
  *
- *	@param[in]	face		ƒtƒHƒ“ƒg–¼(ƒtƒ@ƒCƒ‹–¼‚Å‚Í‚È‚¢)
- *	@param[in]	charset		SHIFTJIS_CHARSET‚È‚Ç
- *	@param[in]	strict		TRUE	ƒtƒHƒ“ƒgƒŠƒ“ƒN‚ÍŒŸõ‚ÉŠÜ‚ß‚È‚¢
- *							FALSE	ƒtƒHƒ“ƒgƒŠƒ“ƒN‚àŒŸõ‚ÉŠÜ‚ß‚é
- *	@retval		FALSE		ƒtƒHƒ“ƒg‚Í‚µ‚È‚¢
- *	@retval		TRUE		ƒtƒHƒ“ƒg‚Í‘¶İ‚·‚é
+ *	@param[in]	face		ãƒ•ã‚©ãƒ³ãƒˆå(ãƒ•ã‚¡ã‚¤ãƒ«åã§ã¯ãªã„)
+ *	@param[in]	charset		SHIFTJIS_CHARSETãªã©
+ *	@param[in]	strict		TRUE	ãƒ•ã‚©ãƒ³ãƒˆãƒªãƒ³ã‚¯ã¯æ¤œç´¢ã«å«ã‚ãªã„
+ *							FALSE	ãƒ•ã‚©ãƒ³ãƒˆãƒªãƒ³ã‚¯ã‚‚æ¤œç´¢ã«å«ã‚ã‚‹
+ *	@retval		FALSE		ãƒ•ã‚©ãƒ³ãƒˆã¯ã—ãªã„
+ *	@retval		TRUE		ãƒ•ã‚©ãƒ³ãƒˆã¯å­˜åœ¨ã™ã‚‹
  *
- *	strict = FALSEA‘¶İ‚µ‚È‚¢ƒtƒHƒ“ƒg‚Å‚à•\¦‚Å‚«‚é‚È‚çTRUE‚ª•Ô‚é
- *	(charste = DEFAULT_CHARSET ‚Ì‚Æ‚«‚Æ“¯‚¶)
+ *	strict = FALSEæ™‚ã€å­˜åœ¨ã—ãªã„ãƒ•ã‚©ãƒ³ãƒˆã§ã‚‚è¡¨ç¤ºã§ãã‚‹ãªã‚‰TRUEãŒè¿”ã‚‹
+ *	(charste = DEFAULT_CHARSET ã®ã¨ãã¨åŒã˜)
  *
- *	* ’
- *		- face ‚Í system locale ‚Æ‚ÍˆÙ‚È‚éƒtƒHƒ“ƒg–¼‚Æ‚Íƒ}ƒbƒ`‚µ‚È‚¢
- *		- ——R (EnumFontFamiliesExW() ‚ÌƒhƒLƒ…ƒƒ“ƒg‚©‚ç)
- *		  - Englsh(ANSI) name ‚Æ localized name ‚Ì2‚Â‚ÌƒtƒHƒ“ƒg–¼‚ğ‚Á‚Ä‚¢‚é
- *		  - localized name ‚Í system local‚Æ“¯‚¶‚¾‚¯æ“¾‚Å‚«‚é
- *		    - EnumFontFamiliesExW() ‚Ìd—l
- *		  - ƒnƒ“ƒOƒ‹‚Åw’è‚³‚ê‚½ Gulim,Dotum ‚Í‘¶İ‚ÌŠm”F‚Å‚«‚È‚¢
- *		- ‰ğŒˆˆÄ
+ *	* æ³¨
+ *		- face ã¯ system locale ã¨ã¯ç•°ãªã‚‹ãƒ•ã‚©ãƒ³ãƒˆåã¨ã¯ãƒãƒƒãƒã—ãªã„
+ *		- ç†ç”± (EnumFontFamiliesExW() ã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‹ã‚‰)
+ *		  - Englsh(ANSI) name ã¨ localized name ã®2ã¤ã®ãƒ•ã‚©ãƒ³ãƒˆåã‚’æŒã£ã¦ã„ã‚‹
+ *		  - localized name ã¯ system localã¨åŒã˜æ™‚ã ã‘å–å¾—ã§ãã‚‹
+ *		    - EnumFontFamiliesExW() ã®ä»•æ§˜
+ *		  - ãƒãƒ³ã‚°ãƒ«ã§æŒ‡å®šã•ã‚ŒãŸ Gulim,Dotum ã¯å­˜åœ¨ã®ç¢ºèªã§ããªã„
+ *		- è§£æ±ºæ¡ˆ
  *		  - http://archives.miloush.net/michkap/archive/2006/02/13/530814.html
  */
 BOOL IsExistFontW(const wchar_t *face, BYTE charset, BOOL strict)
@@ -542,7 +542,7 @@ BOOL IsExistFontW(const wchar_t *face, BYTE charset, BOOL strict)
 	IsExistFontInfoW info;
 	memset(&lf, 0, sizeof(lf));
 	lf.lfCharSet = !strict ? DEFAULT_CHARSET : charset;
-	// ªDEFAULT_CHARSET‚Æ‚·‚é‚ÆƒtƒHƒ“ƒgƒŠƒ“ƒN‚à—LŒø‚É‚È‚é‚æ‚¤‚¾
+	// â†‘DEFAULT_CHARSETã¨ã™ã‚‹ã¨ãƒ•ã‚©ãƒ³ãƒˆãƒªãƒ³ã‚¯ã‚‚æœ‰åŠ¹ã«ãªã‚‹ã‚ˆã†ã 
 	lf.lfPitchAndFamily = 0;
 	info.found = FALSE;
 	info.face = face;

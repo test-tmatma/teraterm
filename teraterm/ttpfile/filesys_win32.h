@@ -1,4 +1,4 @@
-/*
+﻿/*
  * (C) 2020 TeraTerm Project
  * All rights reserved.
  *

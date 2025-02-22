@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2024- TeraTerm Project
  * All rights reserved.
  *
@@ -45,7 +45,7 @@
 #include "dlg_res.h"
 #include "tcpip_pp.h"
 
-// ƒeƒ“ƒvƒŒ[ƒg‚Ì‘‚«Š·‚¦‚ğs‚¤
+// ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®æ›¸ãæ›ãˆã‚’è¡Œã†
 #define REWRITE_TEMPLATE
 
 typedef struct {

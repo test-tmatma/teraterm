@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2013- TeraTerm Project
  * All rights reserved.
  *
@@ -31,7 +31,7 @@
 #include "macrodlgbase.h"
 #include "winuser.h"
 
-// CListDlg ƒ_ƒCƒAƒƒO
+// CListDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 class CListDlg : public CMacroDlgBase
 {
 public:
@@ -40,7 +40,7 @@ public:
 	int m_SelectItem;
 
 private:
-	int CONTROL_GAP_W;				// ƒEƒBƒ“ƒhƒE’[‚ÆƒRƒ“ƒgƒ[ƒ‹ŠÔ‚Æ‚Ì•
+	int CONTROL_GAP_W;				// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ç«¯ã¨ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«é–“ã¨ã®å¹…
 	enum { IDD = IDD_LISTDLG };
 	wchar_t m_Text[MaxStrLen];
 	const wchar_t *m_Caption;
@@ -54,7 +54,7 @@ private:
 	int m_height;
 	BOOL in_init = FALSE;
 	int dpi = 0;
-	BOOL use_TW = FALSE; // TRUE = ‰ŠúƒTƒCƒY‚ÌŒvZ‚ÌÛATW‚Ì’l‚ğg—p‚·‚é
+	BOOL use_TW = FALSE; // TRUE = åˆæœŸã‚µã‚¤ã‚ºã®è¨ˆç®—ã®éš›ã€TWã®å€¤ã‚’ä½¿ç”¨ã™ã‚‹
 
 	void Relocation(BOOL is_init, int WW, int WH);
 	void InitList(HWND HList);

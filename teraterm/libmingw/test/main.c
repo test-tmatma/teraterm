@@ -1,4 +1,4 @@
-//gcc -g -o test main.c -Wall -Wl,-wrap=_imp__fopen_s -Wl,-Map=test.map
+﻿//gcc -g -o test main.c -Wall -Wl,-wrap=_imp__fopen_s -Wl,-Map=test.map
 //gcc -g -o test main.c -Wall -Wl,-Map=test.map,--allow-multiple-definition
 
 //#define __USE_MINGW_ANSI_STDIO 0
