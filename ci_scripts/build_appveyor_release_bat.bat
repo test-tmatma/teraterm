@@ -4,3 +4,4 @@ set CUR=%~dp0
 
 cd /d %CUR%..
 call installer\release.bat 2
+if ERRORLEVEL 1 exit /b 1
