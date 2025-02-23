@@ -6,5 +6,5 @@ cd /d %CUR%..
 call installer\release.bat 2
 if ERRORLEVEL 1 (
 	echo installer\release.bat 2
-	exit /b 1
+	exit 1
 )
