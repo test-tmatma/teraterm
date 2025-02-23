@@ -9,16 +9,27 @@ permissions:
 
 jobs:
   build:
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        include:
+          - vs-version: '17'
+            VS_VERSION: 2022
+            windows: windows-2022
+          - vs-version: '16'
+            VS_VERSION: 2019
+            windows: windows-2019
+    runs-on: ${{ matrix.windows }}
     env:
       NOPAUSE: 1
-      VS_VERSION: 2022
+      VS_VERSION: ${{ matrix.VS_VERSION }}
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
+      with:
+        vs-version: ${{ matrix.vs-version }}
 
     # - name: Cygwin をセットアップ
     #   uses: cygwin/cygwin-install-action@master
