@@ -18,7 +18,11 @@ if "%release%"=="yes" SET rebuild=rebuild
 
 CALL makechm.bat
 CALL build.bat %rebuild%
-if ERRORLEVEL 1 goto fail
+if ERRORLEVEL 1 (
+	echo ERROR CALL build.bat %rebuild%
+	goto fail
+)
+
 set release_bak=%release%
 CALL ..\buildtools\svnrev\sourcetree_info.bat
 set release=%release_bak%
