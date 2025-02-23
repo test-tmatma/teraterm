@@ -1,4 +1,4 @@
-name: vs2022
+name: Build installer
 
 on:
   push:
@@ -70,7 +70,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: installer-BUILD-${{ github.run_number }}-${{ github.run_id }}
+        name: installer-BUILD-${{ github.run_number }}-${{ github.run_id }}-VS${{ matrix.vs-version }}
         path: |
           installer/Output/*.exe
           installer/Output/*.zip
