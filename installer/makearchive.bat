@@ -17,6 +17,11 @@ if "%release%"=="yes" SET plugins=yes
 if "%release%"=="yes" SET rebuild=rebuild
 
 CALL makechm.bat
+if ERRORLEVEL 1 (
+	echo ERROR CALL makechm.bat
+	goto fail
+)
+
 CALL build.bat %rebuild%
 if ERRORLEVEL 1 (
 	echo ERROR CALL build.bat %rebuild%
