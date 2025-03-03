@@ -79,6 +79,7 @@ jobs:
           installer/Output/*.exe
 
     - name: Save libs
+      if: steps.cache-libs-restore.outputs.cache-hit != 'true'
       id: cache-libs-save
       uses: actions/cache/save@v4
       with:
