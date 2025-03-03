@@ -34,7 +34,7 @@ jobs:
       uses: actions/cache/restore@v4
       with:
         path: libs
-        key: ${{ matrix.VS_VERSION }}-${{ hashFiles('.github/workflows/msbuild.yml') }}
+        key: ${{ matrix.VS_VERSION }}-${{ github.event_name }}-${{ hashFiles('.github/workflows/msbuild.yml') }}
 
     - name: download setup-x86_64.exe
       run: |
@@ -84,5 +84,5 @@ jobs:
       with:
         path: |
           libs
-        key: ${{ matrix.VS_VERSION }}-${{ hashFiles('.github/workflows/msbuild.yml') }}
+        key: ${{ matrix.VS_VERSION }}-${{ github.event_name }}-${{ hashFiles('.github/workflows/msbuild.yml') }}
 
