@@ -60,6 +60,7 @@ jobs:
         ci_scripts/build_appveyor_release_bat.bat
 
     - name: after_build
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
         chcp 932
         ci_scripts/build_appveyor_release_bat_pre_cache.bat
