@@ -59,7 +59,8 @@ jobs:
         chcp 932
         ci_scripts/build_appveyor_release_bat.bat
 
-    - name: after_build
+    - name: remove cache dir (libs)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
         chcp 932
         ci_scripts/build_appveyor_release_bat_pre_cache.bat
